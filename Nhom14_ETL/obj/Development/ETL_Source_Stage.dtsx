@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="ETL_Source_Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="121"
-  DTS:VersionGUID="{B531B13B-2B89-4840-AF95-91A54CB0FD12}">
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{BE441746-5A9C-4A94-9438-948114C29081}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2052,7 +2052,7 @@ where [refTable].[state_code] = ? and [refTable].[county_code] = ? and [refTable
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Extract_AQI_Source_To_Stage\806:invalid};#{Package\Extract_AQI_Source_To_Stage\807:invalid};#{Package\Extract_AQI_Source_To_Stage\808:invalid};#{Package\Extract_AQI_Source_To_Stage\809:invalid};</property>
+                  name="ParameterMap">#{Package\Extract_AQI_Source_To_Stage\Merge 1.Outputs[Merge Output 1].Columns[State Code]};#{Package\Extract_AQI_Source_To_Stage\Merge 1.Outputs[Merge Output 1].Columns[County Code]};#{Package\Extract_AQI_Source_To_Stage\Merge 1.Outputs[Merge Output 1].Columns[Copy of Created]};#{Package\Extract_AQI_Source_To_Stage\Merge 1.Outputs[Merge Output 1].Columns[Copy of Last Updated]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7241,7 +7241,7 @@ where [refTable].[county_fips] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7359,9 +7359,7 @@ where [refTable].[county_fips] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7389,9 +7387,7 @@ where [refTable].[county_fips] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
