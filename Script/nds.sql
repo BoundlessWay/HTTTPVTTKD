@@ -49,9 +49,9 @@ GO
 CREATE TABLE NDSDB.dbo.AQI_Measurements (
     measurement_id INT IDENTITY(1,1) PRIMARY KEY,							-- ID tự tăng cho mỗi bản ghi AQI
     county_fips VARCHAR(50) NOT NULL,										-- Khóa ngoại tham chiếu tới bảng Counties qua county_fips
-    county_code VARCHAR(50) NOT NULL,										-- Mã quận nội bang (để thuận tiện tra cứu)
-    date DATE NOT NULL,														-- Ngày đo AQI
-    aqi INT NOT NULL,														-- Chỉ số AQI
+    county_code VARCHAR(50),										-- Mã quận nội bang (để thuận tiện tra cứu)
+    date DATE,														-- Ngày đo AQI
+    aqi INT,														-- Chỉ số AQI
     category_id INT NOT NULL,												-- Khóa ngoại tham chiếu tới bảng Category
     defining_parameter VARCHAR(50),											-- Thông số chính xác định AQI (VD: PM2.5, Ozone)
     defining_site VARCHAR(50),												-- Tên trạm đo
@@ -62,3 +62,14 @@ CREATE TABLE NDSDB.dbo.AQI_Measurements (
     FOREIGN KEY (category_id) REFERENCES NDSDB.dbo.Category(category_id)	-- Ràng buộc khóa ngoại tới bảng Category
 );
 GO
+
+
+INSERT INTO NDSDB.dbo.Category (category_name, LowerBound, UpperBound, aqi_color, description)
+VALUES
+('Good', 0, 50, 'Green', 'Air quality is satisfactory, and air pollution poses little or no risk.'),
+('Moderate', 51, 100, 'Yellow', 'Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.'),
+('Unhealthy for Sensitive Groups', 101, 150, 'Orange', 'Members of sensitive groups may experience health effects. The general public is less likely to be affected.'),
+('Unhealthy', 151, 200, 'Red', 'Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.'),
+('Very Unhealthy', 201, 300, 'Purple', 'Health alert: The risk of health effects is increased for everyone.'),
+('Hazardous', 301, NULL, 'Maroon', 'Health warning of emergency conditions: everyone is more likely to be affected.');
+
