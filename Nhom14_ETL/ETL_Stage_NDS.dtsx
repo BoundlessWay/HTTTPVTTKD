@@ -1,0 +1,2864 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/3/2024 3:29:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-81O7H9J"
+  DTS:CreatorName="DESKTOP-81O7H9J\voduc"
+  DTS:DTSID="{6C857AEB-288E-482F-BA0A-A323F88C63C3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1066"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{48AB06E8-ED08-40E1-96EF-C13D4D3F3162}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B72282EE-65FD-4CC0-B978-2164B623EA34}"
+      DTS:ObjectName="DESKTOP-81O7H9J.NDSDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-81O7H9J;Initial Catalog=NDSDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B72282EE-65FD-4CC0-B978-2164B623EA34}DESKTOP-81O7H9J.NDSDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8032DFC2-AA68-46C7-8D39-E4062CA0BB10}"
+      DTS:ObjectName="DESKTOP-81O7H9J.StageDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-81O7H9J;Initial Catalog=StageDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{8032DFC2-AA68-46C7-8D39-E4062CA0BB10}DESKTOP-81O7H9J.StageDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2A5E3B9E-2078-4172-B935-D3B4C4ECDFF5}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1066"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Workspace\HCMUS\HTTMPVTTKD\HTTTPVTTKD\SourceData\test.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_code"
+              DTS:DTSID="{9B119B2A-D471-4212-802A-B859A8E10FC4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_code"
+              DTS:DTSID="{456DB485-C70A-4C1D-8BE0-5F0E8DF6E1F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{646D72E4-BF5E-4FBF-A7B4-CA073C9D5FF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="aqi"
+              DTS:DTSID="{C1D75B13-43B1-4B72-9E11-F2F5AF7FC721}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{1FC0B3E4-E2BE-4336-861F-0FF402858EC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_parameter"
+              DTS:DTSID="{BDE6DCCC-2AD8-44C5-A33C-89B8650E9A91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_site"
+              DTS:DTSID="{E329DD15-A99A-4D89-8A4A-84D29DA60E66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_sites_reporting"
+              DTS:DTSID="{A63DE593-568A-43DF-B5CE-FD1996A81526}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="created"
+              DTS:DTSID="{47DB8193-0FDF-41DB-8663-23A7848195EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{78696DD9-6511-4469-A4B8-DBB980776BA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_fip"
+              DTS:DTSID="{FA127FAC-1CAA-4A33-9C4F-58559F465E16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_id"
+              DTS:DTSID="{01F58B1A-D9B6-4138-A7AC-E1C6C5B2C771}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{E0A16C21-C112-42CA-82D6-85DBD15CF933}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{04D0CBBF-9656-466B-AE33-9E5BB9B63C59}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{92AAD783-05FD-423A-BB6C-E5B46FFAE264}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1066"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Workspace\HCMUS\HTTMPVTTKD\HTTTPVTTKD\SourceData\test2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_code"
+              DTS:DTSID="{6FC3DE82-7693-4020-A623-3861772E9577}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_code"
+              DTS:DTSID="{F8AB23D9-D4DF-43FE-B4E0-0F4B302185FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{8F5FB52A-5485-49BA-9444-B1A4F27CF083}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="aqi"
+              DTS:DTSID="{5185DF14-0E46-47C1-8E92-2777BF1E6C89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{C9D38D5A-CC52-48B0-899B-4E2A64047E09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_parameter"
+              DTS:DTSID="{93F38576-6C3F-4398-B328-DD326AF73606}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_site"
+              DTS:DTSID="{F738A059-D165-4974-9D42-93AB04476E3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_sites_reporting"
+              DTS:DTSID="{A2B9B5D8-0065-464A-A931-21A23AB36F3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="created"
+              DTS:DTSID="{E35E5540-ADE2-446E-974A-E50CB7FFC22A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{DB2AF0D8-A57C-40AC-B865-9724A525E7EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_fip"
+              DTS:DTSID="{F46EBE4E-238F-40CA-AEDB-AA846D9CABFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_id"
+              DTS:DTSID="{4D60D213-8983-46DA-B4E1-BB9E85F88A1D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{273E0B3D-6D0E-4D6F-8EA2-F5FC81A436B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{561129EB-3CF5-4251-8F44-2A56A80406C9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load_To_AQI_NDS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{421C4497-43D4-4410-88E3-A119A47417B7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_To_AQI_NDS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferMaxRows="1000000"
+          defaultBufferSize="1048576000"
+          version="1">
+          <components>
+            <component
+              refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract_AQIColumns_From_AQI_Stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AQI_Measurements]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select state_code, county_code, date, aqi, category, defining_parameter, defining_site, num_sites_reporting, created, last_updated
+from StageDB.dbo.AQI_Measurements</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      name="state_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_code]"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]"
+                      name="county_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      length="10"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[aqi]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]"
+                      name="aqi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[defining_parameter]"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_parameter]"
+                      name="defining_parameter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_site]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[defining_site]"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_site]"
+                      name="defining_site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[num_sites_reporting]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]"
+                      name="num_sites_reporting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[created]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]"
+                      name="created"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[last_updated]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]"
+                      name="last_updated"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="10"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[aqi]"
+                      dataType="i4"
+                      name="aqi" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[defining_parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="defining_parameter" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[defining_site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="defining_site" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[num_sites_reporting]"
+                      dataType="i4"
+                      name="num_sites_reporting" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[created]"
+                      dataType="dbTimeStamp"
+                      name="created" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].ExternalColumns[last_updated]"
+                      dataType="dbTimeStamp"
+                      name="last_updated" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      name="state_code" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[county_code]"
+                      name="county_code" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[aqi]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[aqi]"
+                      name="aqi" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[defining_parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[defining_parameter]"
+                      name="defining_parameter" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[defining_site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[defining_site]"
+                      name="defining_site" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[num_sites_reporting]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[num_sites_reporting]"
+                      name="num_sites_reporting" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[created]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[created]"
+                      name="created" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[last_updated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[last_updated]"
+                      name="last_updated" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Category]) [refTable]
+where [refTable].[category_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LowerBound" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpperBound" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="aqi_color" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="description" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_AQI_NDS\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input].Columns[category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="category"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">category_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]"
+                      name="category_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">category_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AQI_Measurements]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_AQI_NDS\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_id]"
+                      cachedDataType="i4"
+                      cachedName="category_id"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_fip]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_fip"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[measurement_id]"
+                      dataType="i4"
+                      name="measurement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_fips" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="10"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aqi]"
+                      dataType="i4"
+                      name="aqi" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      dataType="i4"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defining_parameter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="defining_parameter" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defining_site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="defining_site" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_sites_reporting]"
+                      dataType="i4"
+                      name="num_sites_reporting" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created_date]"
+                      dataType="dbTimeStamp"
+                      name="created_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updated_date]"
+                      dataType="dbTimeStamp"
+                      name="updated_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Transform_Fk_CountyFips"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input].Columns[state_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="state_code"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input].Columns[county_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_code"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
+                      name="county_fip"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)([SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]},1,2) + [SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]},3,3))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(SUBSTRING(state_code,1,2) + SUBSTRING(county_code,3,3))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
+              endId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
+              endId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
+              endId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_To_County_NDS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A93F5062-698F-4FA1-942C-0B3A4A81573A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_To_County_NDS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract_CountyColumns_From_County_Stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select county_fips, county as county_name, county_ascii, county_full, SUBSTRING(county_fips, 2, 2) as state_code,
+SUBSTRING(county_fips, 4, 3) as county_code, lat, lng, population
+from Counties</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_fips]"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_fips]"
+                      name="county_fips"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_name]"
+                      name="county_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_ascii]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_ascii]"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_ascii]"
+                      name="county_ascii"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_full]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_full]"
+                      length="100"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_full]"
+                      name="county_full"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      length="2"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      name="state_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_code]"
+                      length="3"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_code]"
+                      name="county_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[lat]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[lng]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lng]"
+                      name="lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[population]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[population]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[population]"
+                      name="population"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_fips" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_ascii]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_ascii" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="county_full" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="county_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_fips]"
+                      name="county_fips" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                      name="county_name" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_ascii]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_ascii]"
+                      name="county_ascii" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_full]"
+                      name="county_full" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      name="state_code" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[county_code]"
+                      name="county_code" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[lat]"
+                      dataType="r8"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[lat]"
+                      name="lat" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[lng]"
+                      dataType="r8"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[lng]"
+                      name="lng" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[population]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[population]"
+                      name="population" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_County_NDS\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select county_fips, created_date, updated_date from Counties</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (Select county_fips, created_date, updated_date from Counties) [refTable]
+where [refTable].[county_fips] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="created_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updated_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_fips]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_County_NDS\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input].Columns[county_fips]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_fips"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_fips]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">county_fips</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[county_fips]"
+                      name="county_fips"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">county_fips</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[created_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[created_date]"
+                      name="created_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">created_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[updated_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Match Output].Columns[updated_date]"
+                      name="updated_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">updated_date</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_County_NDS\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Counties]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_County_NDS\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_fips]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_fips"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_fips]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_name"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_name]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_ascii]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_ascii"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_ascii]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_ascii]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_full]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="county_full"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_full]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_full]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="state_code"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="county_code"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[county_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lat]"
+                      cachedDataType="r8"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lng]"
+                      cachedDataType="r8"
+                      cachedName="lng"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[lng]" />
+                    <inputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[population]"
+                      cachedDataType="i4"
+                      cachedName="population"
+                      externalMetadataColumnId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                      lineageId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[population]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_id]"
+                      dataType="i4"
+                      name="county_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_fips" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_ascii]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_ascii" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="county_full" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created_date]"
+                      dataType="dbTimeStamp"
+                      name="created_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updated_date]"
+                      dataType="dbTimeStamp"
+                      name="updated_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_County_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_County_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_County_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load_To_County_NDS.Paths[Lookup No Match Output]"
+              endId="Package\Load_To_County_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load_To_County_NDS\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load_To_County_NDS.Paths[OLE DB Source Output]"
+              endId="Package\Load_To_County_NDS\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_To_State_NDS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D40F4291-4B3B-472D-9631-475DEAA97B11}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_To_State_NDS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract_StateColumns_From_County_Stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Counties]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+    state_id AS state_abbr,  -- Lấy 2 ký tự đầu tiên từ county_fips
+    state_name, 
+    SUBSTRING(county_fips, 2, 2) as state_code
+FROM 
+    Counties;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                      length="50"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_name]"
+                      name="state_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_abbr]"
+                      length="50"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_abbr]"
+                      name="state_abbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      length="2"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]"
+                      name="state_code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_abbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="state_code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_abbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_abbr]"
+                      name="state_abbr" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                      name="state_name" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                      name="state_code" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_State_NDS\Load_To_State_NDS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_To_State_NDS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[States]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_State_NDS\Load_To_State_NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].Columns[state_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="state_name"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_name]" />
+                    <inputColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].Columns[state_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="state_code"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].Columns[state_abbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="state_abbr"
+                      externalMetadataColumnId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_abbreviation]"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_abbr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_id]"
+                      dataType="i4"
+                      name="state_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input].ExternalColumns[state_abbreviation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_abbreviation" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_State_NDS\Load_To_State_NDS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Load_To_State_NDS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Load_To_State_NDS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Load_To_State_NDS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_State_NDS\Lookup_Row_Exist"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup_Row_Exist"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select state_code from States</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (Select state_code from States) [refTable]
+where [refTable].[state_code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="state_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input].Columns[state_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="state_code"
+                      lineageId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output].Columns[state_code]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">state_code</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Match Output].Columns[state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Match Output].Columns[state_code]"
+                      name="state_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">state_code</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load_To_State_NDS.Paths[Lookup No Match Output]"
+              endId="Package\Load_To_State_NDS\Load_To_State_NDS.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load_To_State_NDS\Lookup_Row_Exist.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load_To_State_NDS.Paths[OLE DB Source Output]"
+              endId="Package\Load_To_State_NDS\Lookup_Row_Exist.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{86958870-BB14-41EC-8979-D74499FF1A37}"
+      DTS:From="Package\Load_To_State_NDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load_To_County_NDS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2447F469-424A-49D4-A131-F18284C7DF5E}"
+      DTS:From="Package\Load_To_County_NDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load_To_AQI_NDS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load_To_AQI_NDS"
+          TopLeft="400,267" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Load_To_County_NDS"
+          TopLeft="177,163" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Load_To_State_NDS"
+          TopLeft="23,67" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="114.5,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159,54"
+              Start="0,0"
+              End="159,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="155,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155,27"
+                    Point2="159,27"
+                    Point3="159,31" />
+                  <mssgle:LineSegment
+                    End="159,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="273.5,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="215,62"
+              Start="0,0"
+              End="215,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="211,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="211,31"
+                    Point2="215,31"
+                    Point3="215,35" />
+                  <mssgle:LineSegment
+                    End="215,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load_To_AQI_NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Load_To_AQI_NDS\Lookup"
+          TopLeft="138,203" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips"
+          TopLeft="71,111" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load_To_AQI_NDS\OLE DB Destination"
+          TopLeft="371,186" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
+          TopLeft="16,15" />
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
+          TopLeft="152.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,54"
+              Start="0,0"
+              End="23,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="19,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,27"
+                    Point2="23,27"
+                    Point3="23,31" />
+                  <mssgle:LineSegment
+                    End="23,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
+          TopLeft="253,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,-17"
+              Start="0,0"
+              End="110.5,-17">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,0"
+                    Point2="59,0"
+                    Point3="59,-4" />
+                  <mssgle:LineSegment
+                    End="59,-13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,-13"
+                    Point2="59,-17"
+                    Point3="63,-17" />
+                  <mssgle:LineSegment
+                    End="110.5,-17" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.9399609375,1,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
+          TopLeft="175.5,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,50"
+              Start="0,0"
+              End="20,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="16,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,25"
+                    Point2="20,25"
+                    Point3="20,29" />
+                  <mssgle:LineSegment
+                    End="20,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Category]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load_To_County_NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load_To_County_NDS\OLE DB Destination"
+          TopLeft="258,368" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Load_To_County_NDS\Lookup"
+          TopLeft="284,214" />
+        <NodeLayout
+          Size="305,42"
+          Id="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage"
+          TopLeft="196,72" />
+        <EdgeLayout
+          Id="Package\Load_To_County_NDS.Paths[Lookup No Match Output]"
+          TopLeft="344,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,112"
+              Start="0,0"
+              End="0,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,46.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_County_NDS.Paths[OLE DB Source Output]"
+          TopLeft="345,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100"
+              Start="0,0"
+              End="0,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_County_NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_County_NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_County_NDS\Extract_CountyColumns_From_County_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load_To_State_NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Load_To_State_NDS\Load_To_State_NDS"
+          TopLeft="214,280" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage"
+          TopLeft="149,40" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load_To_State_NDS\Lookup_Row_Exist"
+          TopLeft="245,159" />
+        <EdgeLayout
+          Id="Package\Load_To_State_NDS.Paths[OLE DB Source Output]"
+          TopLeft="297,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5,77"
+              Start="0,0"
+              End="34.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="30.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,38.5"
+                    Point2="34.5,38.5"
+                    Point3="34.5,42.5" />
+                  <mssgle:LineSegment
+                    End="34.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_State_NDS.Paths[Lookup No Match Output]"
+          TopLeft="331.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-26,79"
+              Start="0,0"
+              End="-26,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="-4,39.5" />
+                  <mssgle:LineSegment
+                    End="-22,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22,39.5"
+                    Point2="-26,39.5"
+                    Point3="-26,43.5" />
+                  <mssgle:LineSegment
+                    End="-26,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-68.80638671875,44.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_State_NDS\Load_To_State_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_State_NDS\Extract_StateColumns_From_County_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_State_NDS\Lookup_Row_Exist">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
