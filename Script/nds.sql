@@ -49,9 +49,9 @@ GO
 CREATE TABLE NDSDB.dbo.AQI_Measurements (
     measurement_id INT IDENTITY(1,1) PRIMARY KEY,							-- ID tự tăng cho mỗi bản ghi AQI
     county_fips VARCHAR(50) NOT NULL,										-- Khóa ngoại tham chiếu tới bảng Counties qua county_fips
-    county_code VARCHAR(50),										-- Mã quận nội bang (để thuận tiện tra cứu)
-    date DATE,														-- Ngày đo AQI
-    aqi INT,														-- Chỉ số AQI
+    county_code VARCHAR(50),												-- Mã quận nội bang (để thuận tiện tra cứu)
+    date DATE,																-- Ngày đo AQI
+    aqi INT,																-- Chỉ số AQI
     category_id INT NOT NULL,												-- Khóa ngoại tham chiếu tới bảng Category
     defining_parameter VARCHAR(50),											-- Thông số chính xác định AQI (VD: PM2.5, Ozone)
     defining_site VARCHAR(50),												-- Tên trạm đo

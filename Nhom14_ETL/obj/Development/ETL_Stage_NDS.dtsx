@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{87115392-9858-4BE8-BB6A-39DE44E32001}">
+  DTS:VersionBuild="108"
+  DTS:VersionGUID="{7BD59838-3A81-46EE-AF77-B0FA040C187E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,6 +40,282 @@
           DTS:ConnectionString="Data Source=DESKTOP-81O7H9J;Initial Catalog=StageDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{8032DFC2-AA68-46C7-8D39-E4062CA0BB10}DESKTOP-81O7H9J.StageDB;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2A5E3B9E-2078-4172-B935-D3B4C4ECDFF5}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1066"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Workspace\HCMUS\HTTMPVTTKD\HTTTPVTTKD\SourceData\test.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_code"
+              DTS:DTSID="{9B119B2A-D471-4212-802A-B859A8E10FC4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_code"
+              DTS:DTSID="{456DB485-C70A-4C1D-8BE0-5F0E8DF6E1F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{646D72E4-BF5E-4FBF-A7B4-CA073C9D5FF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="aqi"
+              DTS:DTSID="{C1D75B13-43B1-4B72-9E11-F2F5AF7FC721}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{1FC0B3E4-E2BE-4336-861F-0FF402858EC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_parameter"
+              DTS:DTSID="{BDE6DCCC-2AD8-44C5-A33C-89B8650E9A91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_site"
+              DTS:DTSID="{E329DD15-A99A-4D89-8A4A-84D29DA60E66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_sites_reporting"
+              DTS:DTSID="{A63DE593-568A-43DF-B5CE-FD1996A81526}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="created"
+              DTS:DTSID="{47DB8193-0FDF-41DB-8663-23A7848195EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{78696DD9-6511-4469-A4B8-DBB980776BA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_fip"
+              DTS:DTSID="{FA127FAC-1CAA-4A33-9C4F-58559F465E16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_id"
+              DTS:DTSID="{01F58B1A-D9B6-4138-A7AC-E1C6C5B2C771}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{E0A16C21-C112-42CA-82D6-85DBD15CF933}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{04D0CBBF-9656-466B-AE33-9E5BB9B63C59}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{92AAD783-05FD-423A-BB6C-E5B46FFAE264}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1066"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Workspace\HCMUS\HTTMPVTTKD\HTTTPVTTKD\SourceData\test2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_code"
+              DTS:DTSID="{6FC3DE82-7693-4020-A623-3861772E9577}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_code"
+              DTS:DTSID="{F8AB23D9-D4DF-43FE-B4E0-0F4B302185FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{8F5FB52A-5485-49BA-9444-B1A4F27CF083}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="aqi"
+              DTS:DTSID="{5185DF14-0E46-47C1-8E92-2777BF1E6C89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category"
+              DTS:DTSID="{C9D38D5A-CC52-48B0-899B-4E2A64047E09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_parameter"
+              DTS:DTSID="{93F38576-6C3F-4398-B328-DD326AF73606}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="defining_site"
+              DTS:DTSID="{F738A059-D165-4974-9D42-93AB04476E3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_sites_reporting"
+              DTS:DTSID="{A2B9B5D8-0065-464A-A931-21A23AB36F3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="created"
+              DTS:DTSID="{E35E5540-ADE2-446E-974A-E50CB7FFC22A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_updated"
+              DTS:DTSID="{DB2AF0D8-A57C-40AC-B865-9724A525E7EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="county_fip"
+              DTS:DTSID="{F46EBE4E-238F-40CA-AEDB-AA846D9CABFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_id"
+              DTS:DTSID="{4D60D213-8983-46DA-B4E1-BB9E85F88A1D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{273E0B3D-6D0E-4D6F-8EA2-F5FC81A436B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{561129EB-3CF5-4251-8F44-2A56A80406C9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -55,213 +331,10 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
+          defaultBufferMaxRows="1000000"
+          defaultBufferSize="1048576000"
           version="1">
           <components>
-            <component
-              refId="Package\Load_To_AQI_NDS\Conditional Split 1"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input].Columns[Copy of county_fip]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of county_fip"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]" />
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input].Columns[Copy of date]"
-                      cachedDataType="dbDate"
-                      cachedName="Copy of date"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of date]" />
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input].Columns[category_id]"
-                      cachedDataType="i4"
-                      cachedName="category_id"
-                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Case 1]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of date]}) &amp;&amp; ![ISNULL](#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]}) &amp;&amp; ![ISNULL](#{Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL([Copy of date]) &amp;&amp; !ISNULL([Copy of county_fip]) &amp;&amp; !ISNULL(category_id)</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load_To_AQI_NDS\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[county_fip]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="county_fip"
-                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]" />
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[date]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="date"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fip]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fip]"
-                      name="Copy of county_fip"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
-                      name="Copy of date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
               componentClassID="Microsoft.OLEDBSource"
@@ -621,7 +694,7 @@ where [refTable].[category_name] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[category]};</property>
+                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -650,8 +723,7 @@ where [refTable].[category_name] = ?</property>
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="category"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[category]">
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -726,198 +798,6 @@ where [refTable].[category_name] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load_To_AQI_NDS\Lookup 1"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup 1"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[AQI_Measurements]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[AQI_Measurements]) [refTable]
-where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[updated_date] = ? and [refTable].[county_fips] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="measurement_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="defining_parameter" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="defining_site" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="num_sites_reporting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updated_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[date]};#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[created]};#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[last_updated]};#{Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load_To_AQI_NDS\Lookup 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input].Columns[Copy of county_fip]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of county_fip"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">county_fips</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input].Columns[created]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="created"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[created]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">created_date</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input].Columns[last_updated]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="last_updated"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[last_updated]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">updated_date</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input].Columns[date]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="date"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[date]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">date</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Load_To_AQI_NDS\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -976,8 +856,8 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
               <connections>
                 <connection
                   refId="Package\Load_To_AQI_NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.StageDB]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -990,40 +870,38 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_code]"
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_id]"
+                      cachedDataType="i4"
+                      cachedName="category_id"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_fip]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="county_code"
-                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[county_code]" />
+                      cachedName="county_fip"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[measurement_id]"
+                      dataType="i4"
+                      name="measurement_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="county_fips" />
                     <externalMetadataColumn
                       refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="county_code" />
-                    <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="county_name" />
-                    <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="state_code" />
-                    <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="state_name" />
                     <externalMetadataColumn
                       refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
                       dataType="wstr"
@@ -1034,11 +912,9 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                       dataType="i4"
                       name="aqi" />
                     <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="category" />
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
+                      dataType="i4"
+                      name="category_id" />
                     <externalMetadataColumn
                       refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defining_parameter]"
                       codePage="1252"
@@ -1056,13 +932,13 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                       dataType="i4"
                       name="num_sites_reporting" />
                     <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created]"
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created_date]"
                       dataType="dbTimeStamp"
-                      name="created" />
+                      name="created_date" />
                     <externalMetadataColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_updated]"
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updated_date]"
                       dataType="dbTimeStamp"
-                      name="last_updated" />
+                      name="updated_date" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1086,450 +962,6 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                       lineageId="Package\Load_To_AQI_NDS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load_To_AQI_NDS\Sort"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[state_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="state_code"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[county_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="county_code"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[date]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="date"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[aqi]"
-                      cachedDataType="i4"
-                      cachedName="aqi"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[category]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="category"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[defining_parameter]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="defining_parameter"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_parameter]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[defining_site]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="defining_site"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_site]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[num_sites_reporting]"
-                      cachedDataType="i4"
-                      cachedName="num_sites_reporting"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[created]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="created"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[last_updated]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="last_updated"
-                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[county_fip]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="county_fip"
-                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[Copy of county_fip]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of county_fip"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fip]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input].Columns[Copy of date]"
-                      cachedDataType="dbDate"
-                      cachedName="Copy of date"
-                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[state_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[state_code]"
-                      name="state_code">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[county_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[county_code]"
-                      name="county_code">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[date]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[date]"
-                      name="date">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[aqi]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[aqi]"
-                      name="aqi">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[category]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[category]"
-                      name="category"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[category]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[defining_parameter]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[defining_parameter]"
-                      name="defining_parameter">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_parameter]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[defining_site]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[defining_site]"
-                      name="defining_site">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_site]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[num_sites_reporting]"
-                      dataType="i4"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[num_sites_reporting]"
-                      name="num_sites_reporting">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[created]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[created]"
-                      name="created">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[last_updated]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[last_updated]"
-                      name="last_updated">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[county_fip]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[county_fip]"
-                      name="county_fip">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of county_fip]"
-                      name="Copy of county_fip">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fip]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of date]"
-                      dataType="dbDate"
-                      lineageId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output].Columns[Copy of date]"
-                      name="Copy of date">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]}</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1576,10 +1008,11 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="5"
+                      length="50"
                       lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
                       name="county_fip"
                       truncationRowDisposition="FailComponent">
@@ -1588,13 +1021,13 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]},1,2) + [SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]},3,3)</property>
+                          name="Expression">(DT_STR,50,1252)([SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]},1,2) + [SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]},3,3))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(state_code,1,2) + SUBSTRING(county_code,3,3)</property>
+                          name="FriendlyExpression">(DT_STR,50,1252)(SUBSTRING(state_code,1,2) + SUBSTRING(county_code,3,3))</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1628,40 +1061,20 @@ where [refTable].[date] = ? and [refTable].[created_date] = ? and [refTable].[up
           </components>
           <paths>
             <path
-              refId="Package\Load_To_AQI_NDS.Paths[Case 1]"
-              endId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]"
-              name="Case 1"
-              startId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Case 1]" />
-            <path
-              refId="Package\Load_To_AQI_NDS.Paths[Data Conversion Output]"
-              endId="Package\Load_To_AQI_NDS\Sort.Inputs[Sort Input]"
-              name="Data Conversion Output"
-              startId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
-              endId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
-              endId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]"
+              endId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output]"
-              endId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
               endId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load_To_AQI_NDS.Paths[Sort Output]"
-              endId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
-              name="Sort Output"
-              startId="Package\Load_To_AQI_NDS\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3274,7 +2687,7 @@ where [refTable].[state_code] = ?</property>
     design-time-name="Package\Load_To_AQI_NDS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="273,42"
           Id="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
@@ -3318,236 +2731,80 @@ where [refTable].[state_code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="161,42"
-          Id="Package\Load_To_AQI_NDS\Data Conversion"
-          TopLeft="85,213" />
+          Size="115,42"
+          Id="Package\Load_To_AQI_NDS\Lookup"
+          TopLeft="138,203" />
         <EdgeLayout
           Id="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
           TopLeft="175.5,153">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10,60"
+              EndConnector="20,50"
               Start="0,0"
-              End="-10,52.5">
+              End="20,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,21" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
                   <mssgle:LineSegment
-                    End="-6,30" />
+                    End="16,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6,30"
-                    Point2="-10,30"
-                    Point3="-10,34" />
+                    Point1="16,25"
+                    Point2="20,25"
+                    Point3="20,29" />
                   <mssgle:LineSegment
-                    End="-10,52.5" />
+                    End="20,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Load_To_AQI_NDS\Sort"
-          TopLeft="159,310" />
-        <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Data Conversion Output]"
-          TopLeft="165.5,255">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="43,55"
-              Start="0,0"
-              End="43,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.5"
-                    Point2="0,27.5"
-                    Point3="4,27.5" />
-                  <mssgle:LineSegment
-                    End="39,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39,27.5"
-                    Point2="43,27.5"
-                    Point3="43,31.5" />
-                  <mssgle:LineSegment
-                    End="43,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="115,42"
-          Id="Package\Load_To_AQI_NDS\Lookup"
-          TopLeft="170,436" />
-        <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Sort Output]"
-          TopLeft="208.5,352">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="19,84"
-              Start="0,0"
-              End="19,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="4,42" />
-                  <mssgle:LineSegment
-                    End="15,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15,42"
-                    Point2="19,42"
-                    Point3="19,46" />
-                  <mssgle:LineSegment
-                    End="19,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Load_To_AQI_NDS\Conditional Split 1"
-          TopLeft="243,537" />
-        <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
-          TopLeft="227.5,478">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="99.5,59"
-              Start="0,0"
-              End="99.5,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="4,29.5" />
-                  <mssgle:LineSegment
-                    End="95.5,29.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="95.5,29.5"
-                    Point2="99.5,29.5"
-                    Point3="99.5,33.5" />
-                  <mssgle:LineSegment
-                    End="99.5,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.55861328125,34.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Load_To_AQI_NDS\Lookup 1"
-          TopLeft="476,588" />
-        <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Case 1]"
-          TopLeft="411,558">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="65,51"
-              Start="0,0"
-              End="57.5,51">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="28.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.5,0"
-                    Point2="32.5,0"
-                    Point3="32.5,4" />
-                  <mssgle:LineSegment
-                    End="32.5,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="32.5,47"
-                    Point2="32.5,51"
-                    Point3="36.5,51" />
-                  <mssgle:LineSegment
-                    End="57.5,51" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.2819140625,-15.5537109375,30.436171875,9.5537109375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
           Size="177,42"
           Id="Package\Load_To_AQI_NDS\OLE DB Destination"
-          TopLeft="182,635" />
+          TopLeft="371,186" />
         <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output]"
-          TopLeft="476,614.666666666667">
+          Id="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
+          TopLeft="253,224">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-117,41.3333333333334"
+              EndConnector="118,-17"
               Start="0,0"
-              End="-109.5,41.3333333333334">
+              End="110.5,-17">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-45.3761467889909,0" />
+                    End="55,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-45.3761467889909,0"
-                    Point2="-49.3761467889909,0"
-                    Point3="-49.3761467889909,4" />
+                    Point1="55,0"
+                    Point2="59,0"
+                    Point3="59,-4" />
                   <mssgle:LineSegment
-                    End="-49.3761467889909,37.3333333333334" />
+                    End="59,-13" />
                   <mssgle:CubicBezierSegment
-                    Point1="-49.3761467889909,37.3333333333334"
-                    Point2="-49.3761467889909,41.3333333333334"
-                    Point3="-53.3761467889909,41.3333333333334" />
+                    Point1="59,-13"
+                    Point2="59,-17"
+                    Point3="63,-17" />
                   <mssgle:LineSegment
-                    End="-109.5,41.3333333333334" />
+                    End="110.5,-17" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-105.182533507741,-17.609375,111.6127734375,11.609375"
+              BoundingBox="1.9399609375,1,114.120078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3579,29 +2836,6 @@ where [refTable].[state_code] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[Category]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_To_AQI_NDS\Lookup 1">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[AQI_Measurements]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
