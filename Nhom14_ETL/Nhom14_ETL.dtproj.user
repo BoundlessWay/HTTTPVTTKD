@@ -8,6 +8,7 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <StartObjectID>ETL_Stage_NDS.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

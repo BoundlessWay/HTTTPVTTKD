@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="110"
-  DTS:VersionGUID="{48AB06E8-ED08-40E1-96EF-C13D4D3F3162}">
+  DTS:VersionBuild="165"
+  DTS:VersionGUID="{644AB569-AD69-4D78-95AC-6F9646DA792E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -335,6 +335,416 @@
           defaultBufferSize="1048576000"
           version="1">
           <components>
+            <component
+              refId="Package\Load_To_AQI_NDS\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[new_county_code]"
+                      cachedDataType="wstr"
+                      cachedLength="52"
+                      cachedName="new_county_code"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[new_state_code]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="new_state_code"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="date"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[aqi]"
+                      cachedDataType="i4"
+                      cachedName="aqi"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[num_sites_reporting]"
+                      cachedDataType="i4"
+                      cachedName="num_sites_reporting"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input].Columns[county_fips]"
+                      cachedDataType="wstr"
+                      cachedLength="52"
+                      cachedName="county_fips"
+                      lineageId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output].Columns[county_fips]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of new_county_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of new_county_code]"
+                      name="Copy of new_county_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of new_state_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of new_state_code]"
+                      name="Copy of new_state_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
+                      name="Copy of date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of aqi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of aqi]"
+                      name="Copy of aqi"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of num_sites_reporting]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of num_sites_reporting]"
+                      name="Copy of num_sites_reporting"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fips]"
+                      name="Copy of county_fips"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output].Columns[county_fips]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input].Columns[new_state_code]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="new_state_code"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input].Columns[new_county_code]"
+                      cachedDataType="wstr"
+                      cachedLength="52"
+                      cachedName="new_county_code"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output].Columns[county_fips]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="52"
+                      lineageId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output].Columns[county_fips]"
+                      name="county_fips"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"\"" + (DT_STR,50,1252)([SUBSTRING](#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]},1,2) + [SUBSTRING](#{Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]},1,3)) + "\""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"\"" + (DT_STR,50,1252)(SUBSTRING(new_state_code,1,2) + SUBSTRING(new_county_code,1,3)) + "\""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
               componentClassID="Microsoft.OLEDBSource"
@@ -798,6 +1208,404 @@ where [refTable].[category_name] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Load_To_AQI_NDS\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Counties]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Counties]) [refTable]
+where [refTable].[county_fips] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="county_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_ascii" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_full" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="lat" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lng" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="population" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updated_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fips]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_AQI_NDS\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input].Columns[Copy of county_fips]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of county_fips"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of county_fips]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">county_fips</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_fips]"
+                      name="county_fips"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">county_fips</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_name]"
+                      name="county_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">county_name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_To_AQI_NDS\Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[AQI_Measurements]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[AQI_Measurements]) [refTable]
+where [refTable].[created_date] = ? and [refTable].[updated_date] = ? and [refTable].[county_fips] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="measurement_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="defining_parameter" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="defining_site" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="num_sites_reporting" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updated_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]};#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]};#{Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_fips]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_To_AQI_NDS\Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-81O7H9J.NDSDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input].Columns[county_fips]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="county_fips"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_fips]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">county_fips</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input].Columns[created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="created"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">created_date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input].Columns[last_updated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="last_updated"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">updated_date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[county_fips]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[county_fips]"
+                      name="county_fips"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">county_fips</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[created_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[created_date]"
+                      name="created_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">created_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[updated_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Match Output].Columns[updated_date]"
+                      name="updated_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">updated_date</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load_To_AQI_NDS\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -870,19 +1678,73 @@ where [refTable].[category_name] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[aqi]"
+                      cachedDataType="i4"
+                      cachedName="aqi"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[aqi]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[aqi]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[defining_parameter]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="defining_parameter"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defining_parameter]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_parameter]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[defining_site]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="defining_site"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[defining_site]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[defining_site]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[num_sites_reporting]"
+                      cachedDataType="i4"
+                      cachedName="num_sites_reporting"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_sites_reporting]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[num_sites_reporting]" />
+                    <inputColumn
                       refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_id]"
                       cachedDataType="i4"
                       cachedName="category_id"
                       externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_id]"
                       lineageId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output].Columns[category_id]" />
                     <inputColumn
-                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_fip]"
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_fips]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="county_fip"
+                      cachedName="county_fips"
                       externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips]"
-                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]" />
+                      lineageId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output].Columns[county_fips]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of new_county_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of new_county_code"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of new_county_code]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of date]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of date"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="created"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created_date]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[created]" />
+                    <inputColumn
+                      refId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_updated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="last_updated"
+                      externalMetadataColumnId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[updated_date]"
+                      lineageId="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[last_updated]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1007,27 +1869,49 @@ where [refTable].[category_name] = ?</property>
                   synchronousInputId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[county_fip]"
-                      name="county_fip"
+                      length="51"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_state_code]"
+                      name="new_state_code"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,50,1252)([SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]},1,2) + [SUBSTRING](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]},3,3))</property>
+                          name="Expression">[LEN](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]}) == 1 ? "0" + #{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]} : #{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[state_code]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,50,1252)(SUBSTRING(state_code,1,2) + SUBSTRING(county_code,3,3))</property>
+                          name="FriendlyExpression">LEN(state_code) == 1 ? "0" + state_code : state_code</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="52"
+                      lineageId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output].Columns[new_county_code]"
+                      name="new_county_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]}) == 1 ? "00" + #{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]} : ([LEN](#{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]}) == 2 ? "0" + #{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]} : #{Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage.Outputs[OLE DB Source Output].Columns[county_code]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(county_code) == 1 ? "00" + county_code : (LEN(county_code) == 2 ? "0" + county_code : county_code)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1061,15 +1945,45 @@ where [refTable].[category_name] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\Load_To_AQI_NDS.Paths[Conditional Split Default Output]"
+              endId="Package\Load_To_AQI_NDS\Lookup 2.Inputs[Lookup Input]"
+              name="Conditional Split Default Output"
+              startId="Package\Load_To_AQI_NDS\Conditional Split 1.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Data Conversion Output]"
+              endId="Package\Load_To_AQI_NDS\Lookup 1.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Load_To_AQI_NDS\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
               refId="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
-              endId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
+              endId="Package\Load_To_AQI_NDS\Derived Column.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Outputs[Derived Column Output]" />
             <path
+              refId="Package\Load_To_AQI_NDS.Paths[Derived Column Output1]"
+              endId="Package\Load_To_AQI_NDS\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load_To_AQI_NDS\Derived Column.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
-              endId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Load_To_AQI_NDS\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\Load_To_AQI_NDS\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Lookup Match Output1]"
+              endId="Package\Load_To_AQI_NDS\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output]"
+              endId="Package\Load_To_AQI_NDS\Conditional Split.Inputs[Conditional Split Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load_To_AQI_NDS\Lookup 1.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output1]"
+              endId="Package\Load_To_AQI_NDS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load_To_AQI_NDS\Lookup 2.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
               endId="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips.Inputs[Derived Column Input]"
@@ -2438,119 +3352,89 @@ where [refTable].[state_code] = ?</property>
     design-time-name="Package\Load_To_AQI_NDS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="115,42"
-          Id="Package\Load_To_AQI_NDS\Lookup"
-          TopLeft="138,203" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="209,42"
           Id="Package\Load_To_AQI_NDS\Transform_Fk_CountyFips"
-          TopLeft="71,111" />
+          TopLeft="371,16" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Load_To_AQI_NDS\OLE DB Destination"
-          TopLeft="371,186" />
+          Size="158,42"
+          Id="Package\Load_To_AQI_NDS\Derived Column"
+          TopLeft="64,117" />
         <NodeLayout
           Size="273,42"
           Id="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage"
           TopLeft="16,15" />
-        <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
-          TopLeft="152.5,57">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23,54"
-              Start="0,0"
-              End="23,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="4,27" />
-                  <mssgle:LineSegment
-                    End="19,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19,27"
-                    Point2="23,27"
-                    Point3="23,31" />
-                  <mssgle:LineSegment
-                    End="23,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Load_To_AQI_NDS\Lookup"
+          TopLeft="454,171" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load_To_AQI_NDS\Data Conversion"
+          TopLeft="80,242" />
         <EdgeLayout
           Id="Package\Load_To_AQI_NDS.Paths[Lookup Match Output]"
-          TopLeft="253,224">
+          TopLeft="511.5,213">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118,-17"
+              EndConnector="-351,29"
               Start="0,0"
-              End="110.5,-17">
+              End="-351,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="55,0" />
+                    End="0,10.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="55,0"
-                    Point2="59,0"
-                    Point3="59,-4" />
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="-4,14.5" />
                   <mssgle:LineSegment
-                    End="59,-13" />
+                    End="-347,14.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="59,-13"
-                    Point2="59,-17"
-                    Point3="63,-17" />
+                    Point1="-347,14.5"
+                    Point2="-351,14.5"
+                    Point3="-351,18.5" />
                   <mssgle:LineSegment
-                    End="110.5,-17" />
+                    End="-351,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="1.9399609375,1,114.120078125,16"
+              BoundingBox="-223.69138671875,19.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
-          TopLeft="175.5,153">
+          Id="Package\Load_To_AQI_NDS.Paths[Derived Column Output1]"
+          TopLeft="222,138">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20,50"
+              EndConnector="232,54"
               Start="0,0"
-              End="20,42.5">
+              End="224.5,54">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
+                    End="112,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="4,25" />
+                    Point1="112,0"
+                    Point2="116,0"
+                    Point3="116,4" />
                   <mssgle:LineSegment
-                    End="16,25" />
+                    End="116,50" />
                   <mssgle:CubicBezierSegment
-                    Point1="16,25"
-                    Point2="20,25"
-                    Point3="20,29" />
+                    Point1="116,50"
+                    Point2="116,54"
+                    Point3="120,54" />
                   <mssgle:LineSegment
-                    End="20,42.5" />
+                    End="224.5,54" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2559,16 +3443,269 @@ where [refTable].[state_code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Derived Column Output]"
+          TopLeft="475.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-332.5,59"
+              Start="0,0"
+              End="-332.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="-4,29.5" />
+                  <mssgle:LineSegment
+                    End="-328.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-328.5,29.5"
+                    Point2="-332.5,29.5"
+                    Point3="-332.5,33.5" />
+                  <mssgle:LineSegment
+                    End="-332.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[OLE DB Source Output]"
+          TopLeft="289,36.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,0"
+              Start="0,0"
+              End="74.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Load_To_AQI_NDS\Lookup 1"
+          TopLeft="498,310" />
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Data Conversion Output]"
+          TopLeft="160.5,284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="399.5,26"
+              Start="0,0"
+              End="399.5,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="395.5,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="395.5,13"
+                    Point2="399.5,13"
+                    Point3="399.5,17" />
+                  <mssgle:LineSegment
+                    End="399.5,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Load_To_AQI_NDS\Conditional Split"
+          TopLeft="48,352" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load_To_AQI_NDS\Conditional Split 1"
+          TopLeft="272,427" />
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output]"
+          TopLeft="498,331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-291,42"
+              Start="0,0"
+              End="-283.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-141.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.5,0"
+                    Point2="-145.5,0"
+                    Point3="-145.5,4" />
+                  <mssgle:LineSegment
+                    End="-145.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-145.5,38"
+                    Point2="-145.5,42"
+                    Point3="-149.5,42" />
+                  <mssgle:LineSegment
+                    End="-283.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-201.30638671875,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Lookup Match Output1]"
+          TopLeft="560,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-204,75"
+              Start="0,0"
+              End="-204,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="-4,37.5" />
+                  <mssgle:LineSegment
+                    End="-200,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-200,37.5"
+                    Point2="-204,37.5"
+                    Point3="-204,41.5" />
+                  <mssgle:LineSegment
+                    End="-204,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-150.19138671875,42.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Load_To_AQI_NDS\Lookup 2"
+          TopLeft="297,525" />
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Conditional Split Default Output]"
+          TopLeft="357.5,469">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load_To_AQI_NDS\OLE DB Destination"
+          TopLeft="85,628" />
+        <EdgeLayout
+          Id="Package\Load_To_AQI_NDS.Paths[Lookup No Match Output1]"
+          TopLeft="359,567">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.5,61"
+              Start="0,0"
+              End="-185.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-181.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.5,30.5"
+                    Point2="-185.5,30.5"
+                    Point3="-185.5,34.5" />
+                  <mssgle:LineSegment
+                    End="-185.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-148.55638671875,35.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_To_AQI_NDS\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2582,32 +3719,6 @@ where [refTable].[state_code] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_To_AQI_NDS\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_To_AQI_NDS\Extract_AQIColumns_From_AQI_Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -2671,7 +3782,9 @@ where [refTable].[state_code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2696,7 +3809,7 @@ where [refTable].[state_code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2769,7 +3882,9 @@ where [refTable].[state_code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2843,7 +3958,7 @@ where [refTable].[state_code] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2853,10 +3968,69 @@ where [refTable].[state_code] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Counties]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
           type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[AQI_Measurements]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_To_AQI_NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

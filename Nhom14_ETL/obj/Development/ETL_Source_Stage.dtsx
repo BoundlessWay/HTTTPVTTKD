@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="ETL_Source_Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{BE441746-5A9C-4A94-9438-948114C29081}">
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{EA3B4CE8-8900-4682-BDE8-70E6AA02BFAC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7000,26 +7000,26 @@ where [refTable].[county_fips] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="145.5,76"
+              EndConnector="127,76"
               Start="0,0"
-              End="145.5,68.5">
+              End="127,68.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34" />
+                    End="0,40.9950248756219" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="4,38" />
+                    Point1="0,40.9950248756219"
+                    Point2="0,44.9950248756219"
+                    Point3="4,44.9950248756219" />
                   <mssgle:LineSegment
-                    End="141.5,38" />
+                    End="123,44.9950248756219" />
                   <mssgle:CubicBezierSegment
-                    Point1="141.5,38"
-                    Point2="145.5,38"
-                    Point3="145.5,42" />
+                    Point1="123,44.9950248756219"
+                    Point2="127,44.9950248756219"
+                    Point3="127,48.9950248756219" />
                   <mssgle:LineSegment
-                    End="145.5,68.5" />
+                    End="127,68.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7241,7 +7241,7 @@ where [refTable].[county_fips] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7359,7 +7359,9 @@ where [refTable].[county_fips] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7387,7 +7389,9 @@ where [refTable].[county_fips] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

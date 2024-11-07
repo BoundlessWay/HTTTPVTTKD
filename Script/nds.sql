@@ -58,7 +58,7 @@ CREATE TABLE NDSDB.dbo.AQI_Measurements (
     num_sites_reporting INT,												-- Số lượng trạm báo cáo dữ liệu												-- ID nguồn gốc của dữ liệu
     created_date DATETIME DEFAULT GETDATE(),								-- Ngày tạo bản ghi
     updated_date DATETIME DEFAULT GETDATE(),								-- Ngày cập nhật bản ghi
-    FOREIGN KEY (county_fips) REFERENCES NDSDB.dbo.Counties(county_fips),	-- Ràng buộc khóa ngoại tới bảng Counties
+    FOREIGN KEY (county_fips) REFERENCES NDSDB.dbo.Counties(county_fips), 	-- Ràng buộc khóa ngoại tới bảng Counties
     FOREIGN KEY (category_id) REFERENCES NDSDB.dbo.Category(category_id)	-- Ràng buộc khóa ngoại tới bảng Category
 );
 GO
