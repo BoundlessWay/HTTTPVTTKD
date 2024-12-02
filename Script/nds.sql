@@ -11,7 +11,7 @@ CREATE TABLE NDSDB.dbo.State (
     state_id INT IDENTITY(1,1) PRIMARY KEY,					-- Khóa phụ tự tăng
     state_code VARCHAR(2) NOT NULL UNIQUE,					-- Mã định danh duy nhất của bang
     state_name VARCHAR(255) NOT NULL,						-- Tên bang
-    state_abbr VARCHAR(255) NOT NULL						-- Tên viết tắt của bang
+    state_abbr VARCHAR(2) NOT NULL							-- Tên viết tắt của bang
 );
 GO
 
