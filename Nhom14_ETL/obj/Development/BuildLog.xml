@@ -2,18 +2,23 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Nhom14_ETL</Name>
-    <LastWriteTime>2024-11-03T13:44:26.7202666Z</LastWriteTime>
+    <LastWriteTime>2024-12-01T03:46:05.8731182Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ETL_Source_Stage.dtsx</Name>
-      <LastWriteTime>2024-11-03T15:30:46.0871812Z</LastWriteTime>
+      <LastWriteTime>2024-11-30T02:27:21.116539Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL_Stage_NDS.dtsx</Name>
-      <LastWriteTime>2024-11-03T15:42:23.2308382Z</LastWriteTime>
+      <LastWriteTime>2024-12-01T03:15:07.5463497Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>ETL_NDS_DDS.dtsx</Name>
+      <LastWriteTime>2024-12-02T02:54:18.7679453Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
