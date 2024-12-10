@@ -1,14 +1,10 @@
 ﻿--Tạo metadata
-use master 
-go
-if DB_ID('DEMO_METADATA') IS NOT NULL
-	DROP DATABASE  DEMO_METADATA
+CREATE DATABASE METADATA
 GO
-CREATE DATABASE DEMO_METADATA
-GO
-USE DEMO_METADATA
+USE METADATA
 GO
 
+--Data structure metadata
 CREATE TABLE ds_data_store (
 	ds_key INT PRIMARY KEY,
 	data_store_name VARCHAR(50),
@@ -68,6 +64,7 @@ CREATE TABLE ds_column (
 	REFERENCES ds_table (tb_key)
 )
 
+--Metadata definition and mapping
 CREATE TABLE data_definition (
 	table_key INT,
 	column_key INT,
@@ -109,6 +106,7 @@ CREATE TABLE mapping (
 )
 GO
 
+--Metadata source system
 CREATE TABLE source_table_data_profile (
 	table_key INT PRIMARY KEY,
 	rows INT,
@@ -122,7 +120,7 @@ CREATE TABLE source_table_data_profile (
 )
 GO
 
-CREATE TABLE Source_column_data_profile (
+CREATE TABLE source_column_data_profile (
 	column_key INT,
 	table_key INT,
 	unique_values INT,
@@ -142,17 +140,6 @@ CREATE TABLE Source_column_data_profile (
 )
 
 --ETL Process Metadata
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.data_flow') AND type = N'U')
-DROP TABLE dbo.data_flow;
-GO
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.status') AND type = N'U')
-DROP TABLE dbo.status;
-GO
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.package') AND type = N'U')
-DROP TABLE dbo.package;
-GO
-
-go
 CREATE TABLE package (
     package_id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -181,17 +168,8 @@ CREATE TABLE data_flow (
     FOREIGN KEY (package_id) REFERENCES package(package_id),
     FOREIGN KEY (status_id) REFERENCES status(status_id)
 );
---Data Quality Metadata
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.dq_notification') AND type = N'U')
-DROP TABLE dbo.dq_notification;
-GO
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.dq_rules') AND type = N'U')
-DROP TABLE dbo.dq_rules;
-GO
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'dbo.data_warehouse_user') AND type = N'U')
-DROP TABLE dbo.data_warehouse_user;
-GO
 
+--Data Quality Metadata
 
 CREATE TABLE dq_rules (
     rule_key INT PRIMARY KEY,
@@ -228,7 +206,6 @@ CREATE TABLE dq_notification (
 	FOREIGN KEY (recipient) REFERENCES data_warehouse_user(user_key),
 );
 GO
-
 
 --Audit Metadata
 --event_category
@@ -302,6 +279,7 @@ ALTER TABLE [dbo].[event_log]  WITH CHECK ADD  CONSTRAINT [FK_event_data_flow] F
 REFERENCES [dbo].[data_flow] ([flow_id])
 GO
 ALTER TABLE [dbo].[event_log] CHECK CONSTRAINT [FK_event_data_flow]
+
 --Usage Metadata
 CREATE TABLE usage_log (
     id INTEGER PRIMARY KEY,
@@ -319,8 +297,6 @@ CREATE TABLE usage_log (
 	FOREIGN KEY (usage_user)
 	REFERENCES data_warehouse_user (user_key)
 );
-
-select * from sys.tables
 
 
 
