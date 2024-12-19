@@ -11,8 +11,9 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="ETL_Source_Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="194"
-  DTS:VersionGUID="{3B04561F-5A78-4A90-827A-7B9D71B7FD74}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="195"
+  DTS:VersionGUID="{EC141F04-FF76-487B-93B8-97B5A67FBD5E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2515,6 +2516,10 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="158,42"
+          Id="Package\Load_County_Source_To_Stage\Derived Column"
+          TopLeft="394,17" />
+        <NodeLayout
           Size="195,42"
           Id="Package\Load_County_Source_To_Stage\Extract_County_Source"
           TopLeft="34,19" />
@@ -2523,9 +2528,33 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           Id="Package\Load_County_Source_To_Stage\Check_Exist_Rows"
           TopLeft="409,147" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\Load_County_Source_To_Stage\Derived Column"
-          TopLeft="394,17" />
+          Size="179,42"
+          Id="Package\Load_County_Source_To_Stage\Load_County_Stage"
+          TopLeft="56,149" />
+        <EdgeLayout
+          Id="Package\Load_County_Source_To_Stage.Paths[Lookup No Match Output]"
+          TopLeft="409,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174,0"
+              Start="0,0"
+              End="-166.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-166.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-147.9250390625,5,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load_County_Source_To_Stage.Paths[Flat File Source Output]"
           TopLeft="229,39">
@@ -2570,34 +2599,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Load_County_Source_To_Stage\Load_County_Stage"
-          TopLeft="56,149" />
-        <EdgeLayout
-          Id="Package\Load_County_Source_To_Stage.Paths[Lookup No Match Output]"
-          TopLeft="409,169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-174,0"
-              Start="0,0"
-              End="-166.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-166.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-147.9250390625,5,129.350078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -2607,7 +2608,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2617,7 +2618,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2643,65 +2644,21 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="179,42"
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source"
-          TopLeft="56,33" />
-        <NodeLayout
           Size="158,42"
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column"
           TopLeft="425,39" />
-        <EdgeLayout
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Flat File Source Output]"
-          TopLeft="235,57">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="190,0"
-              Start="0,0"
-              End="182.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="182.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows"
-          TopLeft="437,177" />
-        <EdgeLayout
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Derived Column Output]"
-          TopLeft="523.5,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,96"
-              Start="0,0"
-              End="0,88.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,88.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="163,42"
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Load_AQI_Stage"
           TopLeft="54,177" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source"
+          TopLeft="56,33" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows"
+          TopLeft="437,177" />
         <EdgeLayout
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Lookup No Match Output]"
           TopLeft="437,198">
@@ -2726,32 +2683,53 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Flat File Source Output]"
+          TopLeft="235,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190,0"
+              Start="0,0"
+              End="182.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="182.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Derived Column Output]"
+          TopLeft="523.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[AQI_Measurements]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Load_AQI_Stage">
     <Properties>
@@ -2762,6 +2740,29 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[AQI_Measurements]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
