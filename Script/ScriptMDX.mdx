@@ -3,8 +3,8 @@ Analysis hints: How do the AQI values fluctuate during the year?
 Pay attention to the values ( max, min). Are any unusually large or small?*/
 SELECT
   {[Measures].[Min AQI], [Max AQI]} ON COLUMNS,
-  ([Dim Date].[Quarter], [Location].[State Name]) ON ROWS
-FROM [DDSDB];
+  ([Dim Date].[Quarter], [Dim County].[State Name]) ON ROWS
+FROM [AQI_DW];
 
 /*2. Report the mean and the standard deviation of AQI value for each State during
 each quarter of years. Analysis hints: How do the AQI values fluctuate during the
@@ -12,8 +12,8 @@ year? Pay attention to the values (mean, std, max, min). Are any unusually large
 small?*/
 SELECT
   {[Measures].[Mean Aqi], [Measures].[Std Aqi]} ON COLUMNS,
-  ([Dim Date].[Year], [Quarter], [Location].[State Name]) ON ROWS
-FROM [DDSDB];
+  ([Dim Date].[Year], [Quarter], [Dim County].[State Name]) ON ROWS
+FROM [AQI_DW];
 
 /*3. Report the number of days, and the mean AQI value where the air quality is rated
 as "very unhealthy" or worse for each State and County. Analysis hint: What is the
@@ -23,11 +23,11 @@ SELECT
   CROSSJOIN(
     {[Dim Category].[Category Name].&[Very Unhealthy]}, 
     CROSSJOIN(
-      [Location].[State Name].[State Name], 
-      [Location].[County Name].[County Name]
+      [Dim County].[State Name].[State Name], 
+      [Dim County].[County Name].[County Name]
     )
   ) ON ROWS
-FROM [DDSDB];
+FROM [AQI_DW];
 
 
 /*4. For the four following states: Hawaii, Alaska, Illinois and Delaware, count the
@@ -37,14 +37,14 @@ distribution of the harmful air condition. What could you conclude about the
 differences?)*/
 SELECT
   [Measures].[Count Day] ON COLUMNS,
-  CROSSJOIN([Dim Category].[Category Name], [Location].[County Name]) ON ROWS
-FROM [DDSDB]
+  CROSSJOIN([Dim Category].[Category Name], [Dim County].[County Name]) ON ROWS
+FROM [AQI_DW]
 WHERE
   {
-    [Location].[State Name].&[Hawaii],
-    [Location].[State Name].&[Alaska],
-    [Location].[State Name].&[Illinois],
-    [Location].[State Name].&[Delaware]
+    [Dim County].[State Name].&[Hawaii],
+    [Dim County].[State Name].&[Alaska],
+    [Dim County].[State Name].&[Illinois],
+    [Dim County].[State Name].&[Delaware]
   };
 
 /*5. For the four following states: Hawaii, Alaska, Illinois and Delaware, compute the
@@ -53,13 +53,13 @@ over the year. What could you conclude about the fluctuations?*/
 SELECT
   [Measures].[Mean Aqi] ON COLUMNS,
   [Dim Date].[Quarter] ON ROWS
-FROM [DDSDB]
+FROM [AQI_DW]
 WHERE
   {
-    [Location].[State Name].&[Hawaii],
-    [Location].[State Name].&[Alaska],
-    [Location].[State Name].&[Illinois],
-    [Location].[State Name].&[Delaware]
+    [Dim County].[State Name].&[Hawaii],
+    [Dim County].[State Name].&[Alaska],
+    [Dim County].[State Name].&[Illinois],
+    [Dim County].[State Name].&[Delaware]
   };
 
 /*6. Design a report to demonstrate the AQI fluctuation trends over the year for the four
@@ -68,13 +68,13 @@ opinion about the fluctuations of AQI value.*/
 SELECT
   [Measures].[Mean Aqi] ON COLUMNS,
   [Dim Date].[Month] ON ROWS
-FROM [DDSDB]
+FROM [AQI_DW]
 WHERE
   {
-    [Location].[State Name].&[Hawaii],
-    [Location].[State Name].&[Alaska],
-    [Location].[State Name].&[Illinois],
-    [Location].[State Name].&[California]
+    [Dim County].[State Name].&[Hawaii],
+    [Dim County].[State Name].&[Alaska],
+    [Dim County].[State Name].&[Illinois],
+    [Dim County].[State Name].&[California]
   };
 
 /*7. Build graphs/charts for the above reports.*/
@@ -84,8 +84,8 @@ WHERE
 during a year.*/
 /*SELECT
   [Measures].[Mean Aqi] ON COLUMNS,
-  [Location].[State Name].[State Name] ON ROWS
-FROM [DDSDB];*/
+  [Dim County].[State Name].[State Name] ON ROWS
+FROM [AQI_DW];*/
 
 -- Question for bonus points:
 
@@ -96,8 +96,8 @@ to the values (mean, std, max, min). Are any unusually large or small? Compare
 the standard deviation values between question 1 and 2, explain.*/
 SELECT
   {[Measures].[Mean Aqi], [Measures].[Std Aqi], [Measures].[Min Aqi], [Measures].[Max Aqi]} ON COLUMNS,
-  CROSSJOIN([Dim Date].[Year], [Quarter], CROSSJOIN([Location].[State Name], [Location].[County Name])) ON ROWS
-FROM [DDSDB];
+  CROSSJOIN([Dim Date].[Year], [Quarter], CROSSJOIN([Dim County].[State Name], [Dim County].[County Name])) ON ROWS
+FROM [AQI_DW];
 
 
 /*10. Create a new attribute, DayLightSaving, in a suitable table. DayLightSaving may
@@ -126,15 +126,15 @@ END*/
 /*MDX
 SELECT
   [Measures].[Mean Aqi] ON COLUMNS,
-  CROSSJOIN([Location].[State Name].[State Name], CROSSJOIN([Dim Category].[Aqi Color].[Aqi Color], [Dim Date].[DayLightSaving].[DayLightSaving])) ON ROWS
-FROM [DDSDB]*/
+  CROSSJOIN([Dim County].[State Name].[State Name], CROSSJOIN([Dim Category].[Aqi Color].[Aqi Color], [Dim Date].[DayLightSaving].[DayLightSaving])) ON ROWS
+FROM [AQI_DW]*/
 
 /*11. Count the number of days by State, Category in each month.
 Be caution: The Category in the data set is calculated for each County, not State.*/
 SELECT
   [Measures].[Count Day] ON COLUMNS,
-  CROSSJOIN([Dim Date].[Month], CROSSJOIN([Location].[State Name], [Dim Category].[Category Name])) ON ROWS
-FROM [DDSDB];
+  CROSSJOIN([Dim Date].[Month], CROSSJOIN([Dim County].[State Name], [Dim Category].[Category Name])) ON ROWS
+FROM [AQI_DW];
 
 /*12. Report the number of days by Category and Defining Parameter. Analysis hints:
 What is your opinion on the pollution situation in the United States as a whole?
@@ -143,4 +143,4 @@ order to enhance air quality*/
 SELECT
   [Measures].[Count Day] ON COLUMNS,
   CROSSJOIN([Dim Category].[Category Name], [Dim Defining Parameter].[Parameter Name]) ON ROWS
-FROM [DDSDB];
+FROM [AQI_DW];
