@@ -1,0 +1,184 @@
+﻿/* 5. For the four following states: Hawaii, Alaska, Illinois and Delaware, compute the 
+mean AQI value by quarters. Analysis hints: Comparing the data of the states over the year. 
+What could you conclude about the fluctuations?*/
+
+WITH 
+    MEMBER [Measures].[Calculated Mean AQI] AS 
+        [Measures].[Sum AQI] / [Measures].[Count AQI]
+SELECT 
+    [Dim Date].[Quarter].Members ON COLUMNS,
+    {
+        [Dim County].[State Name].&[Hawaii],
+        [Dim County].[State Name].&[Alaska],
+        [Dim County].[State Name].&[Illinois],
+        [Dim County].[State Name].&[Delaware]
+    } ON ROWS
+FROM [AQI_DW]
+WHERE [Measures].[Calculated Mean AQI]
+
+/* 6. Design a report to demonstrate the AQI fluctuation trends over the year for the four
+following states: Hawaii, Alaska, Illinois and California. Analysis hint: Give your
+opinion about the fluctuations of AQI value. */
+
+WITH 
+    MEMBER [Measures].[Calculated Mean AQI] AS 
+        [Measures].[Sum AQI] / [Measures].[Count AQI]
+SELECT 
+    ORDER(
+        [Dim Date].[Month].Members,
+        [Dim Date].[Month].CurrentMember.MemberValue,
+        BASC
+    ) ON COLUMNS,
+    {
+        [Dim County].[State Name].&[Hawaii],
+        [Dim County].[State Name].&[Alaska],
+        [Dim County].[State Name].&[Illinois],
+        [Dim County].[State Name].&[Delaware]
+    } ON ROWS
+FROM [AQI_DW]
+WHERE [Measures].[Calculated Mean AQI]
+
+/* 7. Build graphs/charts for the above reports. (Thực hiện ở PowerBI) */  
+
+
+
+/* 8. Use a regional map to visually represent (by color) the mean AQI value in regions during a year (năm 2023).*/
+
+WITH 
+    MEMBER [Measures].[Calculated Mean AQI] AS 
+        IIF(
+            [Measures].[Count AQI] = 0, 
+            NULL, 
+            [Measures].[Sum AQI] / [Measures].[Count AQI]
+        ), 
+        FORMAT_STRING = "#,##0.00"
+SELECT 
+    {
+        [Dim County].[State Name].&[Alaska],
+        [Dim County].[State Name].&[Delaware],
+        [Dim County].[State Name].&[Hawaii],
+        [Dim County].[State Name].&[Illinois]
+    } ON COLUMNS,
+    ORDER(
+        NONEMPTY([Dim Date].[Month].[Month].Members),
+        [Dim Date].[Month].CurrentMember.MemberValue,
+        ASC
+    ) ON ROWS
+FROM [AQI_DW]
+WHERE 
+    ([Measures].[Calculated Mean AQI], [Dim Date].[Year].&[2023])
+
+
+/* 9. Report the mean, the standard deviation, min and max of AQI value group by
+State and County during each quarter of the year. Analysis hints: Pay attention
+to the values (mean, std, max, min). Are any unusually large or small? Compare
+the standard deviation values between question 1 and 2, explain. */
+WITH 
+    -- Tính Mean AQI
+    MEMBER [Measures].[Calculated Mean AQI] AS 
+        IIF(
+            [Measures].[Count AQI] = 0, 
+            NULL, 
+            [Measures].[Sum AQI] / [Measures].[Count AQI]
+        ), 
+        FORMAT_STRING = "#,##0.00"
+
+    -- Tính phương sai AQI (Variance AQI)
+    MEMBER [Measures].[Calculated Variance AQI] AS 
+        IIF(
+            [Measures].[Count AQI] = 0, 
+            NULL, 
+            ([Measures].[Sum Squares AQI] / [Measures].[Count AQI]) - 
+            ([Measures].[Calculated Mean AQI] * [Measures].[Calculated Mean AQI])
+        ), 
+        FORMAT_STRING = "#,##0.00"
+
+    -- Tính StdDev AQI
+    MEMBER [Measures].[Calculated StdDev AQI Approx] AS 
+        IIF(
+            IsEmpty([Measures].[Calculated Variance AQI]), 
+            NULL, 
+            [Measures].[Calculated Variance AQI] -- Thay thế StdDev bằng Variance
+        ), 
+        FORMAT_STRING = "#,##0.00"
+
+SELECT 
+    {[Measures].[Calculated Mean AQI], 
+     [Measures].[Calculated StdDev AQI Approx], 
+     [Measures].[Min AQI], 
+     [Measures].[Max AQI]} ON COLUMNS,
+    NONEMPTY(
+        FILTER(
+            CROSSJOIN(
+                [Dim County].[County Name].Members,
+                [Dim County].[State Name].Members
+            ),
+            NOT [Dim County].[County Name].CurrentMember IS [Dim County].[County Name].[All] AND
+            NOT [Dim County].[State Name].CurrentMember IS [Dim County].[State Name].[All]
+        )
+    ) ON ROWS
+FROM [AQI_DW]
+WHERE 
+    [Dim Date].[Quarter].Members
+
+/* 10. Create a new attribute, DayLightSaving, in a suitable table. DayLightSaving may
+have two values:
+True: Between March 12, 2023, and November 5, 2023
+False: Otherwise
+Report the mean AQI value by State, Category, DayLightSaving over years.
+Analysis hint: Is there any notable difference on the air quality during the Daylight
+Saving period compared to the other? */
+
+WITH 
+    -- Tính Mean AQI
+    MEMBER [Measures].[Calculated Mean AQI] AS 
+        IIF(
+            [Measures].[Count AQI] = 0, 
+            NULL, 
+            [Measures].[Sum AQI] / [Measures].[Count AQI]
+        ), 
+        FORMAT_STRING = "#,##0.00"
+
+SELECT 
+    [Measures].[Calculated Mean AQI] ON COLUMNS,
+    NON EMPTY 
+    CROSSJOIN(
+        [Dim County].[State Name].[State Name].Members,
+        [Dim Category].[Category Name].[Category Name].Members,
+        [Dim Date].[DayLightSaving].[DayLightSaving].Members
+    ) ON ROWS
+FROM [AQI_DW]
+WHERE 
+    [Dim Date].[Year].Members
+
+/* 11. Count the number of days by State, Category in each month.
+Be caution: The Category in the data set is calculated for each County, not State. */
+
+SELECT 
+    ORDER(
+        [Dim Date].[Month].[Month].Members,
+        [Dim Date].[Month].CurrentMember.MemberValue,
+        ASC
+    ) ON COLUMNS, 
+    NONEMPTY(
+        CROSSJOIN(
+            [Dim County].[County Name].[County Name].Members,
+            [Dim Category].[Category Name].[Category Name].Members
+        )
+    ) ON ROWS
+FROM [AQI_DW]
+WHERE 
+    ([Measures].[Count Day])
+
+/*12. Report the number of days by Category and Defining Parameter. Analysis hints:
+What is your opinion on the pollution situation in the United States as a whole?
+Additionally, please identify the primary factors that the country should consider in
+order to enhance air quality. */
+SELECT 
+    [Dim Category].[Category Name].[Category Name].Members ON COLUMNS,
+    NONEMPTY(
+        [Dim Defining Parameter].[Parameter Name].[Parameter Name].Members
+    ) ON ROWS
+FROM [AQI_DW]
+WHERE 
+    [Measures].[Count Day]
