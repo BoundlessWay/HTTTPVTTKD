@@ -1,4 +1,91 @@
-﻿/* 5. For the four following states: Hawaii, Alaska, Illinois and Delaware, compute the 
+﻿/*1. Report the min and max of AQI value for each State during each quarter of
+years. Analysis hints: How do the AQI values fluctuate during the year? Pay
+attention to the values ( max, min). Are any unusually large or small? */
+SELECT 
+    {[Measures].[Min AQI], [Measures].[Max AQI]} ON COLUMNS,
+    NON EMPTY 
+    [Dim Date].[Year].[Year].ALLMEMBERS *
+    [Dim Date].[Quarter].[Quarter].ALLMEMBERS *
+    [Dim County].[State Name].[State Name].ALLMEMBERS ON ROWS
+FROM [AQI_DW];
+
+
+/*2. Report the mean and the standard deviation of AQI value for each State during
+each quarter of years. Analysis hints: How do the AQI values fluctuate during the
+year? Pay attention to the values (mean, std, max, min). Are any unusually large or
+small?*/
+WITH 
+	MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[Count Day] > 0,
+		[Measures].[Sum Aqi] / [Measures].[Count Day],
+		NULL
+	)
+	-- Tính phương sai AQI (Variance AQI)
+    MEMBER [Measures].[Calculated Variance AQI] AS 
+        IIF(
+            [Measures].[Count AQI] = 0, 
+            NULL, 
+            ([Measures].[Sum Squares AQI] / [Measures].[Count AQI]) - 
+            ([Measures].[Mean AQI] * [Measures].[Mean AQI])
+        ), 
+        FORMAT_STRING = "#,##0.00"
+
+    -- Tính StdDev AQI
+    MEMBER [Measures].[Calculated StdDev AQI Approx] AS 
+        IIF(
+            IsEmpty([Measures].[Calculated Variance AQI]), 
+            NULL, 
+            [Measures].[Calculated Variance AQI] -- Thay thế StdDev bằng Variance
+        ), 
+        FORMAT_STRING = "#,##0.00"
+SELECT 
+    {[Measures].[Mean AQI], [Measures].[Calculated Variance AQI]} ON COLUMNS,
+    NON EMPTY 
+    [Dim Date].[Year].[Year].ALLMEMBERS *
+    [Dim Date].[Quarter].[Quarter].ALLMEMBERS *
+    [Dim County].[State Name].[State Name].ALLMEMBERS ON ROWS
+FROM [AQI_DW];
+
+
+
+/*3. Report the number of days, and the mean AQI value where the air quality is rated
+as "very unhealthy" or worse for each State and County. Analysis hint: What is the
+AQI limit above which air quality is "very unhealthy" or worse?*/
+WITH 
+	MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[Count Day] > 0,
+		[Measures].[Sum Aqi] / [Measures].[Count Day],
+		NULL
+	)
+SELECT 
+	{[Measures].[Count Day], [Measures].[Mean AQI]} ON COLUMNS,
+	NON EMPTY
+	[Dim County].[State Name].[State Name].ALLMEMBERS *
+	[Dim County].[County Name].[County Name].ALLMEMBERS *
+	{[Dim Category].[Category Name].[Very Unhealthy], 
+	 [Dim Category].[Category Name].[Hazardous]} ON ROWS
+FROM [AQI_DW]
+
+/*4. For the four following states: Hawaii, Alaska, Illinois and Delaware, count the
+number of days in each air quality Category (Good, Moderate,etc.) by County.
+Analysis hints: Comparing the data of the states and counties, focus on the
+distribution of the harmful air condition. What could you conclude about the
+differences?)*/
+Select
+	{[Measures].[Count Day]} ON COLUMNS,
+	NON EMPTY
+	{[Dim County].[State Name].[Hawaii],
+	[Dim County].[State Name].[Alaska],
+	[Dim County].[State Name].[Illinois],
+	[Dim County].[State Name].[Delaware]} *
+	[Dim County].[County Name].[County Name].ALLMEMBERS *
+	[Dim Category].[Category Name].[Category Name].ALLMEMBERS ON ROWS
+FROM [AQI_DW]
+
+
+/* 5. For the four following states: Hawaii, Alaska, Illinois and Delaware, compute the 
 mean AQI value by quarters. Analysis hints: Comparing the data of the states over the year. 
 What could you conclude about the fluctuations?*/
 
