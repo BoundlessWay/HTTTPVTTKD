@@ -2,24 +2,32 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Nhom14_ETL</Name>
-    <LastWriteTime>2024-12-01T03:46:05.8731182Z</LastWriteTime>
-    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    <LastWriteTime>2024-12-20T01:05:30.1838254Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+    <Salt>6ZrwCqkS</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3tBW1tbPGE2AfheOQai06wAAAAACAAAAAAAQZgAAAAEAACAAAABX2Erer9sG4yxjrh6K7UtsERzmBnnrAb6Y7hwEpjXdWAAAAAAOgAAAAAIAACAAAADpGLsyG+b7G6n4zQ5jEghsgh7k1Vphw9LaY7pnp0ViKDAAAABRvYmESYXaA2F/30tC6Di+1n+vN57wqkoObjdZy/bgtkRnGux000puEkNjTopNE8tAAAAA9ZnOMd1sNVcA/zR5Bt/xYC29ZYyb+f/gEQytYLFdon7Eb1aXVxCXBxxwFosIntJE3fJ14cxwDfG6bx2A8+FQeA==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ETL_Source_Stage.dtsx</Name>
-      <LastWriteTime>2024-11-30T02:27:21.116539Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+      <LastWriteTime>2024-12-20T01:02:45.5523291Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>bqCidz2V</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3tBW1tbPGE2AfheOQai06wAAAAACAAAAAAAQZgAAAAEAACAAAACNK9cp548Qm9jAJZMTbhGBDcaDkAPTwzerhAuktuquCQAAAAAOgAAAAAIAACAAAAB6X+5TVW8LN9X+gDaWz7TzAmrUQl131OYDY7lMf46COzAAAACl/UqJu9qNJRCX7UOhYaaug6NkIZqDt+0VAOosD0SvPeTj8YW3f6JlPe8hRTdWga5AAAAAsjUX14sKzxZw8b6qlcWoIk0AGTjDNc2NSv67lZ4VYkYFWkrUbTzPznKziD/Hh+IVQwlGM/QLeModEuLBguyOmw==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL_Stage_NDS.dtsx</Name>
-      <LastWriteTime>2024-12-01T03:15:07.5463497Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+      <LastWriteTime>2024-12-20T01:03:17.8526815Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>9QErKEE8</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3tBW1tbPGE2AfheOQai06wAAAAACAAAAAAAQZgAAAAEAACAAAABsEevhYr57GCWFGw7OxltWlYp9bBEvGWQC08ngkFKm5AAAAAAOgAAAAAIAACAAAABQTPOqmTIhhGj02yMeCCH7U34/o/xND7dSmTlIHgUC3jAAAABc/UzYIv9EQj1lnBsnWP78ZqALw/88B21lcTc+mcWp4X5YlrrGLhcOdAnn+NvaU+9AAAAAnWPh3Ppt+eE10zwaT8+oUj5PoMV/k0Tb++zS7teIaRlC/rFXxdHGrdZ+iZ/Gb9fErnrlzvgO9ve3qESHpdYE4Q==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL_NDS_DDS.dtsx</Name>
-      <LastWriteTime>2024-12-02T02:54:18.7679453Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+      <LastWriteTime>2024-12-20T01:02:20.8934308Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>oghkWL5q</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3tBW1tbPGE2AfheOQai06wAAAAACAAAAAAAQZgAAAAEAACAAAAAXo20RAni7aCSGg1PsQQHtiqHpI7jamsLkk0Plpa9s8wAAAAAOgAAAAAIAACAAAADuX44ktTf8YFEa/PH28Hskf3/FsZEUswJpoZjSwfHnajAAAACMAoQ7pa4t2bmX0rwQhLqODZprhVVvaFgzR/RIL/KNhWf9bCfklvNwbt6kUXx2gSxAAAAAghJnsKVU+/4gA9WKRwLi8qNUxMtsI/P8kMkG7thCqOenhmgbiV/sTxy4el4NOmh+mp2Un5CMt+8pDtuseUGRBA==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>
