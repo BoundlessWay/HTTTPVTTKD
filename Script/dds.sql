@@ -52,8 +52,6 @@ CREATE TABLE AQI_Fact (
     date_id INT NOT NULL,
     category_id INT NOT NULL,
     parameter_id INT NOT NULL,
-    mean_aqi FLOAT NOT NULL,
-    std_aqi FLOAT NOT NULL,
     min_aqi INT NOT NULL,
     max_aqi INT NOT NULL,
     count_day INT NOT NULL,
