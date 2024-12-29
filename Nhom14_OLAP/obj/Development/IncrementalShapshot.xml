@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>Default</ProcessingOption>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -19,49 +19,49 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>/Gkltuqfh20JqWZQUsKmtMYxEik=29/12/2024 20:11:5129/12/2024 20:11:47</TimeStamp>
+        <TimeStamp>ljf4mYV0YlE9RtPNPURlbusG9H4=30/12/2024 00:12:0830/12/2024 00:12:08</TimeStamp>
         <ID>
           <String>DDSDB</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>X6WPhKxdb3iB8/uTxBTLqyB163M=29/12/2024 20:12:1829/12/2024 20:12:18</TimeStamp>
+        <TimeStamp>/cwGbsgKhwJoVbqhtg92h1wykGU=30/12/2024 00:12:2830/12/2024 00:12:27</TimeStamp>
         <ID>
           <String>DDSDB</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>eHlhe6rO6roy3Wk2jO1lAu+hfEo=29/12/2024 20:15:1629/12/2024 20:12:30</TimeStamp>
+        <TimeStamp>AtCaCB9iHlQwBorezDRqN00KAfU=30/12/2024 00:32:1230/12/2024 00:12:39</TimeStamp>
         <ID>
           <String>Dim Date</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>NWcTdmf2/gaz5K8KfpRIsh1UMXY=29/12/2024 20:15:2329/12/2024 20:12:30</TimeStamp>
+        <TimeStamp>FaifEXpZlUoEIhLpKGa3xX1P2Cs=30/12/2024 00:25:2030/12/2024 00:12:39</TimeStamp>
         <ID>
           <String>Dim Defining Parameter</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>tDJ679LZ1GhcX2bHVR9NB/bGdNY=29/12/2024 20:15:3629/12/2024 20:12:30</TimeStamp>
+        <TimeStamp>um/3OccsZj8ATKb9hrE9XrU2G98=30/12/2024 00:24:5030/12/2024 00:12:39</TimeStamp>
         <ID>
           <String>Dim Category</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>mF1/9oLsdWDc0+bZ7GdAt4ehb04=29/12/2024 20:15:5229/12/2024 20:12:30</TimeStamp>
+        <TimeStamp>u3gwDL5PW5Ri8I0EAt1hKonRDbM=30/12/2024 00:19:2330/12/2024 00:12:39</TimeStamp>
         <ID>
           <String>Dim County</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>9utQJLDSO7o8zDole8g8jFQ+cBs=29/12/2024 20:22:2029/12/2024 20:12:29veH3Xy3JZT3Tc7MGrms9JNegnWA=29/12/2024 20:22:2029/12/2024 20:12:29</TimeStamp>
+        <TimeStamp>jHtVFXa5mh4LALyLwP0H27cBtLU=30/12/2024 00:29:3730/12/2024 00:12:393Mzc/N4/r6EbJigRb7FjOZZdImk=30/12/2024 00:13:2430/12/2024 00:12:39</TimeStamp>
         <ID>
           <String>DDSDB</String>
         </ID>
@@ -69,7 +69,7 @@
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>4DrtIM2KZRwWpW33uXyms+sYKsc=20/12/2024 09:23:5920/12/2024 09:23:58</TimeStamp>
+      <TimeStamp>JA6RHV8ITreOEmoOISU6fv9HCwU=30/12/2024 00:11:2430/12/2024 00:11:24</TimeStamp>
       <ID>
         <String>Nhom14_OLAP</String>
       </ID>
@@ -78,5 +78,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2024-12-29T15:28:52.593333Z</LastDeployed>
+  <LastDeployed>2024-12-29T17:32:22.61Z</LastDeployed>
 </DeploymentSnapshot>
