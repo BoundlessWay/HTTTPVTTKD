@@ -51,7 +51,7 @@ CREATE TABLE ds_column
 	REFERENCES ds_table (tb_key)
 )
 
---ETL Process Metadata
+
 CREATE TABLE status (
     status_id INT PRIMARY KEY,
     status VARCHAR(50)
@@ -70,60 +70,6 @@ CREATE TABLE data_flow (
 );
 
 --Audit Metadata
---event category
-CREATE TABLE event_category
-(
-	id_category INT PRIMARY KEY,
-	event_category VARCHAR(255) NULL
-);
---event type
-CREATE TABLE event_type
-(
-	id_type INT PRIMARY KEY,
-	event_type VARCHAR(255) NULL
-);
---event_log
-CREATE TABLE event_log
-(
-	id_log INT PRIMARY KEY,
-	id_event_type INT NULL,
-	id_event_category INT NULL,
-	timestamp DATETIME NULL,
-	object INT NULL,
-	data_flow INT NULL,
-	rows INT NULL,
-	NOTE VARCHAR(255) NULL
-)
-GO
-
---FOREIGN KEY
---event_log to event_category
-ALTER TABLE event_log  WITH CHECK ADD CONSTRAINT [FK_event_category] FOREIGN KEY(id_event_category)
-REFERENCES event_category(id_category)
-GO
-ALTER TABLE event_log CHECK CONSTRAINT [FK_event_category]
-GO
-
---event_log to event_type
-ALTER TABLE event_log  WITH CHECK ADD CONSTRAINT [FK_event_type] FOREIGN KEY(id_event_type)
-REFERENCES event_type(id_type)
-GO
-ALTER TABLE [dbo].[event_log] CHECK CONSTRAINT [FK_event_type]
-GO
-
---event_log to ds_table
-ALTER TABLE event_log  WITH CHECK ADD CONSTRAINT [FK_event_table] FOREIGN KEY(object)
-REFERENCES ds_table(tb_key)
-GO
-ALTER TABLE event_log CHECK CONSTRAINT [FK_event_table]
-GO
-
---event_log to data_flow
-ALTER TABLE event_log  WITH CHECK ADD CONSTRAINT [FK_event_data_flow] FOREIGN KEY(data_flow)
-REFERENCES data_flow(flow_id)
-GO
-ALTER TABLE event_log CHECK CONSTRAINT [FK_event_data_flow]
-GO
 --event_category
 SET ANSI_NULLS ON
 GO
@@ -330,7 +276,8 @@ VALUES
     (11, 'Load DDS Dim Category'),
     (12, 'Load DDS Fact AQI_Measurements'),
 	(13, 'Load DDS Dim Date'),
-    (14, 'Load DDS Dim DefiningParameter')
+    (14, 'Load DDS Dim DefiningParameter'),
+    (15, 'Load DDS Dim State');
 
 
 
