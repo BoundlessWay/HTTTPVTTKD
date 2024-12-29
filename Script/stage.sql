@@ -33,3 +33,6 @@ CREATE TABLE StageDB.dbo.AQI_Measurements (
     last_updated DATETIME,											-- Thời gian cập nhật bản ghi (mặc định là thời điểm hiện tại)
 	PRIMARY KEY (state_code, county_code, created, last_updated)	-- Định nghĩa khóa chính
 );
+
+
+

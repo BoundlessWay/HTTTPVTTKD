@@ -17,6 +17,9 @@ CREATE TABLE Dim_County (
     county_name VARCHAR(255) NOT NULL,
     county_fips VARCHAR(5) NOT NULL UNIQUE,
     state_id INT NOT NULL,
+	lat DECIMAL(9, 6),												
+    long DECIMAL(9, 6),													
+    population INT,		
     FOREIGN KEY (state_id) REFERENCES Dim_State(state_id)
 );
 
@@ -52,12 +55,8 @@ CREATE TABLE AQI_Fact (
     date_id INT NOT NULL,
     category_id INT NOT NULL,
     parameter_id INT NOT NULL,
-    min_aqi INT NOT NULL,
-    max_aqi INT NOT NULL,
-    count_day INT NOT NULL,
-	sum_aqi INT NOT NULL,         
-    sum_squares_aqi FLOAT NOT NULL,
-	count_aqi INT NOT NULL, 
+    aqi INT NOT NULL,
+	square_aqi INT NOT NULL,
     FOREIGN KEY (county_id) REFERENCES Dim_County(county_id),
     FOREIGN KEY (date_id) REFERENCES Dim_Date(date_id),
     FOREIGN KEY (category_id) REFERENCES Dim_Category(category_id),

@@ -48,8 +48,7 @@ GO
 -- Bảng AQI_Measurements: Lưu trữ các đo lường chất lượng không khí (AQI)
 CREATE TABLE NDSDB.dbo.AQI_Measurement (
     measurement_id INT IDENTITY(1,1) PRIMARY KEY,							-- ID tự tăng cho mỗi bản ghi AQI
-    county_fips VARCHAR(5) NOT NULL,										-- Khóa ngoại tham chiếu tới bảng Counties qua county_fips
-    county_code VARCHAR(3),													-- Mã quận nội bang (để thuận tiện tra cứu)
+    county_fips VARCHAR(5) NOT NULL,										-- Khóa ngoại tham chiếu tới bảng Counties qua county_fips												-- Mã quận nội bang (để thuận tiện tra cứu)
     date DATE,																-- Ngày đo AQI
     aqi INT,																-- Chỉ số AQI
     category_id INT NOT NULL,												-- Khóa ngoại tham chiếu tới bảng Category
