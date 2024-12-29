@@ -291,8 +291,7 @@ VALUES
     (11, 'Load DDS Dim Category'),
     (12, 'Load DDS Fact AQI_Measurements'),
 	(13, 'Load DDS Dim Date'),
-    (14, 'Load DDS Dim DefiningParameter'),
-    (15, 'Load DDS Dim State');
+    (14, 'Load DDS Dim DefiningParameter')
 
 
 

@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL_Source_Stage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="209"
-  DTS:VersionGUID="{D64069E8-BD33-43ED-A69D-2A2A0C1432B7}">
+  DTS:VersionBuild="235"
+  DTS:VersionGUID="{1CEAE350-F6E8-4264-8B52-D6F188A61114}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1475,6 +1475,38 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
+                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows.Inputs[Lookup Input].Columns[Derived_Created]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Derived_Created"
+                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Created]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">created</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows.Inputs[Lookup Input].Columns[Derived_Last_Updated]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Derived_Last_Updated"
+                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Last_Updated]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">last_updated</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
                           refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows.Inputs[Lookup Input].Columns[Derived_State_Code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -1504,38 +1536,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                               dataType="System.String"
                               description="Specifies the column in the reference table that a column joins."
                               name="JoinToReferenceColumn">county_code</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows.Inputs[Lookup Input].Columns[Derived_Last_Updated]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="Derived_Last_Updated"
-                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Last_Updated]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">last_updated</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows.Inputs[Lookup Input].Columns[Derived_Created]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="Derived_Created"
-                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Created]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">created</property>
                             <property
                               dataType="System.Null"
                               description="Specifies the column in the reference table from which a column is copied."
@@ -1601,13 +1601,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                       name="Derived Column Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Inputs[Derived Column Input].Columns[Date]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Date"
-                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source.Outputs[Flat File Source Output].Columns[Date]" />
-                        <inputColumn
                           refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Inputs[Derived Column Input].Columns[Created]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -1635,6 +1628,13 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           cachedLength="50"
                           cachedName="County Code"
                           lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source.Outputs[Flat File Source Output].Columns[County Code]" />
+                        <inputColumn
+                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Inputs[Derived Column Input].Columns[Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Date"
+                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source.Outputs[Flat File Source Output].Columns[Date]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -1667,28 +1667,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">(DT_DBTIMESTAMP)Created</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Date]"
-                          dataType="dbDate"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Date]"
-                          name="Derived_Date"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">(DT_DBDATE)#{Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source.Outputs[Flat File Source Output].Columns[Date]}</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">(DT_DBDATE)Date</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1759,6 +1737,28 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">(DT_STR,3,1252)RIGHT("00" + [County Code],3)</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Date]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Derived Column.Outputs[Derived Column Output].Columns[Derived_Date]"
+                          name="Derived_Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)#{Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source.Outputs[Flat File Source Output].Columns[Date]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)Date</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -2503,7 +2503,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
         <NodeLayout
           Size="239,42"
           Id="Package\Load_County_Source_To_Stage"
-          TopLeft="116,41" />
+          TopLeft="119,40" />
         <NodeLayout
           Size="223,42"
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage"
@@ -2517,18 +2517,18 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           TopLeft="102,184" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="237.5,83">
+          TopLeft="239,82">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,101"
+              EndConnector="0,102"
               Start="0,0"
-              End="0,93.5">
+              End="0,94.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,93.5" />
+                    End="0,94.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2638,7 +2638,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2648,7 +2648,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2680,39 +2680,11 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
         <NodeLayout
           Size="163,42"
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Load_AQI_Stage"
-          TopLeft="54,177" />
+          TopLeft="53,181" />
         <NodeLayout
           Size="179,42"
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Extract_AQI_Source"
           TopLeft="56,33" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows"
-          TopLeft="437,177" />
-        <EdgeLayout
-          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Lookup No Match Output]"
-          TopLeft="437,198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-220,0"
-              Start="0,0"
-              End="-212.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-212.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-162.05638671875,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Flat File Source Output]"
           TopLeft="235,57">
@@ -2735,26 +2707,54 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage\Check_Exist_Rows"
+          TopLeft="421,187" />
         <EdgeLayout
           Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Derived Column Output]"
-          TopLeft="523.5,81">
+          TopLeft="504,81">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,96"
+              EndConnector="0,106"
               Start="0,0"
-              End="0,88.5">
+              End="0,98.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,88.5" />
+                    End="0,98.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop_Load_AQI_Source_To_Stage\Load_AQI_Source_To_Stage.Paths[Lookup No Match Output]"
+          TopLeft="421,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-205,0"
+              Start="0,0"
+              End="-197.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-197.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-154.55638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2779,7 +2779,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2789,7 +2789,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

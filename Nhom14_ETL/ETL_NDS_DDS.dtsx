@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL_NDS_DDS"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{6C97260C-AACA-4D89-96D7-3D6A409C430E}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{B728F24B-C875-4C3D-AC8B-7CC0997E67E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -675,7 +675,7 @@ where [refTable].[county_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load_Dim_County\37:invalid};</property>
+                  name="ParameterMap">#{Package\Load_Dim_County\223:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1357,7 +1357,7 @@ where [refTable].[state_code] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load_Dim_County\48:invalid};</property>
+                  name="ParameterMap">#{Package\Load_Dim_County\224:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3180,7 +3180,7 @@ where [refTable].[state_id] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[AQI_Fact]) [refTable]
-where [refTable].[category_id] = ? and [refTable].[parameter_id] = ? and [refTable].[county_id] = ? and [refTable].[date_id] = ?</property>
+where [refTable].[category_id] = ? and [refTable].[county_id] = ? and [refTable].[parameter_id] = ? and [refTable].[date_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -3211,12 +3211,12 @@ where [refTable].[category_id] = ? and [refTable].[parameter_id] = ? and [refTab
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="fact_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parameter_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="mean_aqi" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="std_aqi" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="min_aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="max_aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="count_day" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sum_aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sum_squares_aqi" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="count_aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="fact_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="category_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parameter_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="square_aqi" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load_Fact_AQI\18:invalid};#{Package\Load_Fact_AQI\23:invalid};#{Package\Load_Fact_AQI\28:invalid};#{Package\Load_Fact_AQI\33:invalid};</property>
+                  name="ParameterMap">#{Package\Load_Fact_AQI\Extract_AQI_NDS.Outputs[OLE DB Source Output].Columns[category_id]};#{Package\Load_Fact_AQI\Lookup_County_ID.Outputs[Lookup Match Output].Columns[county_id]};#{Package\Load_Fact_AQI\Lookup_Parameter_ID.Outputs[Lookup Match Output].Columns[parameter_id]};#{Package\Load_Fact_AQI\Lookup_Date_ID.Outputs[Lookup Match Output].Columns[date_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3256,22 +3256,6 @@ where [refTable].[category_id] = ? and [refTable].[parameter_id] = ? and [refTab
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load_Fact_AQI\Check_Exist_Rows.Inputs[Lookup Input].Columns[parameter_id]"
-                      cachedDataType="i4"
-                      cachedName="parameter_id"
-                      lineageId="Package\Load_Fact_AQI\Lookup_Parameter_ID.Outputs[Lookup Match Output].Columns[parameter_id]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">parameter_id</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Load_Fact_AQI\Check_Exist_Rows.Inputs[Lookup Input].Columns[county_id]"
                       cachedDataType="i4"
                       cachedName="county_id"
@@ -3281,6 +3265,22 @@ where [refTable].[category_id] = ? and [refTable].[parameter_id] = ? and [refTab
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">county_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load_Fact_AQI\Check_Exist_Rows.Inputs[Lookup Input].Columns[parameter_id]"
+                      cachedDataType="i4"
+                      cachedName="parameter_id"
+                      lineageId="Package\Load_Fact_AQI\Lookup_Parameter_ID.Outputs[Lookup Match Output].Columns[parameter_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">parameter_id</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -3856,7 +3856,7 @@ where [refTable].[county_fips] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="county_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_name" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="county_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_name" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="county_fips" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lat" dataType="DT_NUMERIC" length="0" precision="9" scale="6" codePage="0"/&gt;&lt;referenceColumn name="long" dataType="DT_NUMERIC" length="0" precision="9" scale="6" codePage="0"/&gt;&lt;referenceColumn name="population" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4636,37 +4636,17 @@ where [refTable].[parameter_name] = ?</property>
           Id="Package\Load_Dim_County\Load_Dim_County_DDS"
           TopLeft="58,242" />
         <NodeLayout
-          Size="160,42"
-          Id="Package\Load_Dim_County\Lookup_state_id"
-          TopLeft="425,65" />
+          Size="177,42"
+          Id="Package\Load_Dim_County\Extract_County_NDS"
+          TopLeft="68,66" />
         <NodeLayout
           Size="174,42"
           Id="Package\Load_Dim_County\Check_Exist_Rows"
           TopLeft="412,241" />
-        <EdgeLayout
-          Id="Package\Load_Dim_County.Paths[Lookup No Match Output]"
-          TopLeft="412,262.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-155,0"
-              Start="0,0"
-              End="-147.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-147.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-129.55638671875,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Load_Dim_County\Lookup_state_id"
+          TopLeft="425,65" />
         <EdgeLayout
           Id="Package\Load_Dim_County.Paths[Lookup Match Output]"
           TopLeft="502,107">
@@ -4691,10 +4671,6 @@ where [refTable].[parameter_name] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Load_Dim_County\Extract_County_NDS"
-          TopLeft="68,66" />
         <EdgeLayout
           Id="Package\Load_Dim_County.Paths[OLE DB Source Output]"
           TopLeft="245,86.5">
@@ -4717,6 +4693,30 @@ where [refTable].[parameter_name] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Dim_County.Paths[Lookup No Match Output]"
+          TopLeft="412,262.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155,0"
+              Start="0,0"
+              End="-147.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-147.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-129.55638671875,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4734,25 +4734,15 @@ where [refTable].[parameter_name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_Dim_County\Lookup_state_id">
+    design-time-name="Package\Load_Dim_County\Extract_County_NDS">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[State]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4768,6 +4758,29 @@ where [refTable].[parameter_name] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[Dim_County]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_Dim_County\Lookup_state_id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[State]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -5151,17 +5164,9 @@ where [refTable].[parameter_name] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="173,42"
-          Id="Package\Load_Fact_AQI\Lookup_County_ID"
-          TopLeft="460,33" />
-        <NodeLayout
           Size="190,42"
           Id="Package\Load_Fact_AQI\Lookup_Parameter_ID"
           TopLeft="449,183" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Load_Fact_AQI\Load_Fact_AQI_DDS"
-          TopLeft="420,494" />
         <NodeLayout
           Size="174,42"
           Id="Package\Load_Fact_AQI\Check_Exist_Rows"
@@ -5171,13 +5176,21 @@ where [refTable].[parameter_name] = ?</property>
           Id="Package\Load_Fact_AQI\Extract_AQI_NDS"
           TopLeft="19,28" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Load_Fact_AQI\Lookup_Date_ID"
+          TopLeft="58,176" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Load_Fact_AQI\Load_Fact_AQI_DDS"
+          TopLeft="420,494" />
+        <NodeLayout
           Size="185,42"
           Id="Package\Load_Fact_AQI\Calculate_square_aqi"
           TopLeft="53,330" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\Load_Fact_AQI\Lookup_Date_ID"
-          TopLeft="58,176" />
+          Size="173,42"
+          Id="Package\Load_Fact_AQI\Lookup_County_ID"
+          TopLeft="460,33" />
         <EdgeLayout
           Id="Package\Load_Fact_AQI.Paths[OLE DB Source Output]"
           TopLeft="187,51.5">
@@ -5322,29 +5335,6 @@ where [refTable].[parameter_name] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_Fact_AQI\Lookup_County_ID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_County]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load_Fact_AQI\Lookup_Parameter_ID">
     <Properties>
       <Property>
@@ -5368,25 +5358,12 @@ where [refTable].[parameter_name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_Fact_AQI\Load_Fact_AQI_DDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load_Fact_AQI\Check_Exist_Rows">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5440,7 +5417,7 @@ where [refTable].[parameter_name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_Dim_County\Extract_County_NDS">
+    design-time-name="Package\Load_Fact_AQI\Load_Fact_AQI_DDS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5449,6 +5426,29 @@ where [refTable].[parameter_name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_Fact_AQI\Lookup_County_ID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_County]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

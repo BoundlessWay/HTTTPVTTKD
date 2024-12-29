@@ -3,7 +3,7 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <TargetServer>localhost</TargetServer>
+        <TargetServer>DESKTOP-81O7H9J</TargetServer>
         <TargetDatabase>Nhom14_OLAP</TargetDatabase>
         <StartObject>
           <ObjectId></ObjectId>

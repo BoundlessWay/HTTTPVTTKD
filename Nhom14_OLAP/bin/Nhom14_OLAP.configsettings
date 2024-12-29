@@ -26,7 +26,7 @@
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>AQI_DW</ID>
+        <ID>DDSDB</ID>
         <MeasureGroups>
           <MeasureGroup>
             <ID>AQI Fact</ID>

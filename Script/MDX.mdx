@@ -2,12 +2,12 @@
 years. Analysis hints: How do the AQI values fluctuate during the year? Pay
 attention to the values ( max, min). Are any unusually large or small? */
 SELECT 
-    {[Measures].[Min AQI], [Measures].[Max AQI]} ON COLUMNS,
+    {[Measures].[Maximum AQI], [Measures].[Minimum AQI]} ON COLUMNS,
     NON EMPTY 
     [Dim Date].[Year].[Year].ALLMEMBERS *
     [Dim Date].[Quarter].[Quarter].ALLMEMBERS *
     [Dim County].[State Name].[State Name].ALLMEMBERS ON ROWS
-FROM [AQI_DW];
+FROM DDSDB;
 
 
 /*2. Report the mean and the standard deviation of AQI value for each State during
@@ -15,37 +15,19 @@ each quarter of years. Analysis hints: How do the AQI values fluctuate during th
 year? Pay attention to the values (mean, std, max, min). Are any unusually large or
 small?*/
 WITH 
-	MEMBER [Measures].[Mean AQI] AS 
-	IIF (
-		[Measures].[Count Day] > 0,
-		[Measures].[Sum Aqi] / [Measures].[Count Day],
-		NULL
-	)
-	-- Tính phương sai AQI (Variance AQI)
-    MEMBER [Measures].[Calculated Variance AQI] AS 
+    MEMBER [Measures].[Mean AQI] AS 
         IIF(
-            [Measures].[Count AQI] = 0, 
-            NULL, 
-            ([Measures].[Sum Squares AQI] / [Measures].[Count AQI]) - 
-            ([Measures].[Mean AQI] * [Measures].[Mean AQI])
-        ), 
-        FORMAT_STRING = "#,##0.00"
-
-    -- Tính StdDev AQI
-    MEMBER [Measures].[Calculated StdDev AQI Approx] AS 
-        IIF(
-            IsEmpty([Measures].[Calculated Variance AQI]), 
-            NULL, 
-            [Measures].[Calculated Variance AQI] -- Thay thế StdDev bằng Variance
-        ), 
-        FORMAT_STRING = "#,##0.00"
+            [Measures].[AQI Fact Count] > 0,
+            [Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+            NULL
+        )
 SELECT 
-    {[Measures].[Mean AQI], [Measures].[Calculated Variance AQI]} ON COLUMNS,
+    {[Measures].[Mean AQI]} ON COLUMNS,
     NON EMPTY 
     [Dim Date].[Year].[Year].ALLMEMBERS *
     [Dim Date].[Quarter].[Quarter].ALLMEMBERS *
     [Dim County].[State Name].[State Name].ALLMEMBERS ON ROWS
-FROM [AQI_DW];
+FROM DDSDB;
 
 
 
@@ -55,26 +37,26 @@ AQI limit above which air quality is "very unhealthy" or worse?*/
 WITH 
 	MEMBER [Measures].[Mean AQI] AS 
 	IIF (
-		[Measures].[Count Day] > 0,
-		[Measures].[Sum Aqi] / [Measures].[Count Day],
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
 		NULL
 	)
 SELECT 
-	{[Measures].[Count Day], [Measures].[Mean AQI]} ON COLUMNS,
+	{[Measures].[AQI Fact Count], [Measures].[Mean AQI]} ON COLUMNS,
 	NON EMPTY
 	[Dim County].[State Name].[State Name].ALLMEMBERS *
 	[Dim County].[County Name].[County Name].ALLMEMBERS *
 	{[Dim Category].[Category Name].[Very Unhealthy], 
 	 [Dim Category].[Category Name].[Hazardous]} ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 
 /*4. For the four following states: Hawaii, Alaska, Illinois and Delaware, count the
 number of days in each air quality Category (Good, Moderate,etc.) by County.
 Analysis hints: Comparing the data of the states and counties, focus on the
 distribution of the harmful air condition. What could you conclude about the
 differences?)*/
-Select
-	{[Measures].[Count Day]} ON COLUMNS,
+SELECT
+	{[Measures].[AQI Fact Count]} ON COLUMNS,
 	NON EMPTY
 	{[Dim County].[State Name].[Hawaii],
 	[Dim County].[State Name].[Alaska],
@@ -82,7 +64,8 @@ Select
 	[Dim County].[State Name].[Delaware]} *
 	[Dim County].[County Name].[County Name].ALLMEMBERS *
 	[Dim Category].[Category Name].[Category Name].ALLMEMBERS ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
+
 
 
 /* 5. For the four following states: Hawaii, Alaska, Illinois and Delaware, compute the 
@@ -90,40 +73,48 @@ mean AQI value by quarters. Analysis hints: Comparing the data of the states ove
 What could you conclude about the fluctuations?*/
 
 WITH 
-    MEMBER [Measures].[Calculated Mean AQI] AS 
-        [Measures].[Sum AQI] / [Measures].[Count AQI]
-SELECT 
-    [Dim Date].[Quarter].Members ON COLUMNS,
+    MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+		NULL
+	)
+SELECT [Measures].[Mean AQI] ON COLUMNS,
+	NON EMPTY
     {
         [Dim County].[State Name].&[Hawaii],
         [Dim County].[State Name].&[Alaska],
         [Dim County].[State Name].&[Illinois],
-        [Dim County].[State Name].&[Delaware]
-    } ON ROWS
-FROM [AQI_DW]
-WHERE [Measures].[Calculated Mean AQI]
+        [Dim County].[State Name].&[Delaware] 
+    } * [Dim Date].[Quarter].[Quarter].ALLMembers ON ROWS
+FROM DDSDB
+
 
 /* 6. Design a report to demonstrate the AQI fluctuation trends over the year for the four
 following states: Hawaii, Alaska, Illinois and California. Analysis hint: Give your
 opinion about the fluctuations of AQI value. */
 
 WITH 
-    MEMBER [Measures].[Calculated Mean AQI] AS 
-        [Measures].[Sum AQI] / [Measures].[Count AQI]
-SELECT 
-    ORDER(
-        [Dim Date].[Month].Members,
-        [Dim Date].[Month].CurrentMember.MemberValue,
-        BASC
-    ) ON COLUMNS,
+    MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+		NULL
+	)
+SELECT [Measures].[Mean AQI] ON COLUMNS,
+	NON EMPTY
     {
         [Dim County].[State Name].&[Hawaii],
         [Dim County].[State Name].&[Alaska],
         [Dim County].[State Name].&[Illinois],
         [Dim County].[State Name].&[Delaware]
-    } ON ROWS
-FROM [AQI_DW]
-WHERE [Measures].[Calculated Mean AQI]
+    } * ORDER(
+        [Dim Date].[Month].[Month].AllMembers,
+        [Dim Date].[Month].CurrentMember.MemberValue,
+        BASC
+    ) ON ROWS
+FROM DDSDB
+
 
 /* 7. Build graphs/charts for the above reports. (Thực hiện ở PowerBI) */  
 
@@ -132,13 +123,12 @@ WHERE [Measures].[Calculated Mean AQI]
 /* 8. Use a regional map to visually represent (by color) the mean AQI value in regions during a year (năm 2023).*/
 
 WITH 
-    MEMBER [Measures].[Calculated Mean AQI] AS 
-        IIF(
-            [Measures].[Count AQI] = 0, 
-            NULL, 
-            [Measures].[Sum AQI] / [Measures].[Count AQI]
-        ), 
-        FORMAT_STRING = "#,##0.00"
+    MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+		NULL
+	)
 SELECT 
     {
         [Dim County].[State Name].&[Alaska],
@@ -147,13 +137,13 @@ SELECT
         [Dim County].[State Name].&[Illinois]
     } ON COLUMNS,
     ORDER(
-        NONEMPTY([Dim Date].[Month].[Month].Members),
+        NONEMPTY([Dim Date].[Month].[Month].AllMembers),
         [Dim Date].[Month].CurrentMember.MemberValue,
         ASC
     ) ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 WHERE 
-    ([Measures].[Calculated Mean AQI], [Dim Date].[Year].&[2023])
+    ([Measures].[Mean AQI], [Dim Date].[Year].&[2023])
 
 
 /* 9. Report the mean, the standard deviation, min and max of AQI value group by
@@ -162,38 +152,17 @@ to the values (mean, std, max, min). Are any unusually large or small? Compare
 the standard deviation values between question 1 and 2, explain. */
 WITH 
     -- Tính Mean AQI
-    MEMBER [Measures].[Calculated Mean AQI] AS 
-        IIF(
-            [Measures].[Count AQI] = 0, 
-            NULL, 
-            [Measures].[Sum AQI] / [Measures].[Count AQI]
-        ), 
-        FORMAT_STRING = "#,##0.00"
-
-    -- Tính phương sai AQI (Variance AQI)
-    MEMBER [Measures].[Calculated Variance AQI] AS 
-        IIF(
-            [Measures].[Count AQI] = 0, 
-            NULL, 
-            ([Measures].[Sum Squares AQI] / [Measures].[Count AQI]) - 
-            ([Measures].[Calculated Mean AQI] * [Measures].[Calculated Mean AQI])
-        ), 
-        FORMAT_STRING = "#,##0.00"
-
-    -- Tính StdDev AQI
-    MEMBER [Measures].[Calculated StdDev AQI Approx] AS 
-        IIF(
-            IsEmpty([Measures].[Calculated Variance AQI]), 
-            NULL, 
-            [Measures].[Calculated Variance AQI] -- Thay thế StdDev bằng Variance
-        ), 
-        FORMAT_STRING = "#,##0.00"
+   MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+		NULL
+	)
 
 SELECT 
-    {[Measures].[Calculated Mean AQI], 
-     [Measures].[Calculated StdDev AQI Approx], 
-     [Measures].[Min AQI], 
-     [Measures].[Max AQI]} ON COLUMNS,
+    {[Measures].[Mean AQI],  
+     [Measures].[Minimum AQI], 
+     [Measures].[Maximum AQI]} ON COLUMNS,
     NONEMPTY(
         FILTER(
             CROSSJOIN(
@@ -204,7 +173,7 @@ SELECT
             NOT [Dim County].[State Name].CurrentMember IS [Dim County].[State Name].[All]
         )
     ) ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 WHERE 
     [Dim Date].[Quarter].Members
 
@@ -218,13 +187,12 @@ Saving period compared to the other? */
 
 WITH 
     -- Tính Mean AQI
-    MEMBER [Measures].[Calculated Mean AQI] AS 
-        IIF(
-            [Measures].[Count AQI] = 0, 
-            NULL, 
-            [Measures].[Sum AQI] / [Measures].[Count AQI]
-        ), 
-        FORMAT_STRING = "#,##0.00"
+    MEMBER [Measures].[Mean AQI] AS 
+	IIF (
+		[Measures].[AQI Fact Count] > 0,
+		[Measures].[Sum Aqi] / [Measures].[AQI Fact Count],
+		NULL
+	)
 
 SELECT 
     [Measures].[Calculated Mean AQI] ON COLUMNS,
@@ -234,7 +202,7 @@ SELECT
         [Dim Category].[Category Name].[Category Name].Members,
         [Dim Date].[DayLightSaving].[DayLightSaving].Members
     ) ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 WHERE 
     [Dim Date].[Year].Members
 
@@ -253,7 +221,7 @@ SELECT
             [Dim Category].[Category Name].[Category Name].Members
         )
     ) ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 WHERE 
     ([Measures].[Count Day])
 
@@ -266,6 +234,6 @@ SELECT
     NONEMPTY(
         [Dim Defining Parameter].[Parameter Name].[Parameter Name].Members
     ) ON ROWS
-FROM [AQI_DW]
+FROM DDSDB
 WHERE 
     [Measures].[Count Day]

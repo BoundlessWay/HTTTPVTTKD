@@ -8,12 +8,12 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>AQI_DW.cube</Name>
-      <FullPath>AQI_DW.cube</FullPath>
+      <Name>DDSDB.cube</Name>
+      <FullPath>DDSDB.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>AQI_DW.partitions</Name>
-          <FullPath>AQI_DW.partitions</FullPath>
+          <Name>DDSDB.partitions</Name>
+          <FullPath>DDSDB.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
@@ -44,8 +44,8 @@
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>AQI_DW.dsv</Name>
-      <FullPath>AQI_DW.dsv</FullPath>
+      <Name>DDSDB.dsv</Name>
+      <FullPath>DDSDB.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>

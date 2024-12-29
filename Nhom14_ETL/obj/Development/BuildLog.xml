@@ -8,17 +8,17 @@
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ETL_Source_Stage.dtsx</Name>
-      <LastWriteTime>2024-12-29T04:36:01.6225635Z</LastWriteTime>
+      <LastWriteTime>2024-12-29T11:28:37.3307951Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL_Stage_NDS.dtsx</Name>
-      <LastWriteTime>2024-12-29T08:48:41.0081667Z</LastWriteTime>
+      <LastWriteTime>2024-12-29T11:36:20.354206Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL_NDS_DDS.dtsx</Name>
-      <LastWriteTime>2024-12-29T09:00:22.3600913Z</LastWriteTime>
+      <LastWriteTime>2024-12-29T11:45:07.5766195Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
