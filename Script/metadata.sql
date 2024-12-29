@@ -9,10 +9,7 @@ CREATE TABLE ds_data_store (
 	ds_key INT PRIMARY KEY,
 	data_store_name VARCHAR(50),
 	desciption NVARCHAR(1000),
-	DBMS VARCHAR(50),
-	collation VARCHAR(100),
-	current_size INT,
-	growth INT,
+	DBMS VARCHAR(50)
 )
 GO
 
@@ -146,14 +143,15 @@ CREATE TABLE package (
     description VARCHAR(500), 
     schedule VARCHAR(100)
 );
+GO
 
-go
 CREATE TABLE status (
     status_id INT PRIMARY KEY,
     status VARCHAR(50)
 );
 
-go
+GO
+
 CREATE TABLE data_flow (
     flow_id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -168,44 +166,6 @@ CREATE TABLE data_flow (
     FOREIGN KEY (package_id) REFERENCES package(package_id),
     FOREIGN KEY (status_id) REFERENCES status(status_id)
 );
-
---Data Quality Metadata
-
-CREATE TABLE dq_rules (
-    rule_key INT PRIMARY KEY,
-    rule_name VARCHAR(255),
-    rule_description TEXT,
-    rule_type VARCHAR(50),
-    category VARCHAR(50),
-    risk_level VARCHAR(50),
-    status VARCHAR(50),
-    action VARCHAR(50),
-    create_timestamp DATETIME,
-    update_timestamp DATETIME
-);
-GO
-
-CREATE TABLE data_warehouse_user (
-    user_key INT PRIMARY KEY,
-    user_name VARCHAR(255),
-    department VARCHAR(100),
-    role VARCHAR(100),
-    email_address VARCHAR(100),
-    phone_number VARCHAR(20),
-    group_id INT
-);
-GO
-
-CREATE TABLE dq_notification (
-    notification_key INT PRIMARY KEY,
-    rule_key INT,
-    recipient_type VARCHAR(50),
-	recipient INT,
-    recipient_method VARCHAR(50),
-    FOREIGN KEY (rule_key) REFERENCES dq_rules(rule_key),
-	FOREIGN KEY (recipient) REFERENCES data_warehouse_user(user_key),
-);
-GO
 
 --Audit Metadata
 --event_category
@@ -284,23 +244,6 @@ REFERENCES [dbo].[data_flow] ([flow_id])
 GO
 ALTER TABLE [dbo].[event_log] CHECK CONSTRAINT [FK_event_data_flow]
 
---Usage Metadata
-CREATE TABLE usage_log (
-    id INTEGER PRIMARY KEY,
-    usage_user INTEGER,
-    object INTEGER,
-    timestamp datetime,
-    parameters VARCHAR(50),
-    note TEXT
-
-	CONSTRAINT FK_usage_table
-	FOREIGN KEY (object)
-	REFERENCES ds_table(tb_key),
-
-	CONSTRAINT FK_usage_user
-	FOREIGN KEY (usage_user)
-	REFERENCES data_warehouse_user (user_key)
-);
 
 
 

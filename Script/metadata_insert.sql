@@ -1,13 +1,13 @@
-USE DEMO_METADATA
+USE METADATA
 GO
 
 --ETL Structure Metadata
-INSERT INTO ds_data_store (ds_key, data_store_name, desciption, DBMS, collation, current_size, growth) 
+INSERT INTO ds_data_store (ds_key, data_store_name, desciption, DBMS) 
 VALUES 
-(1, 'Stage', ' Staging area', 'SQL Server 2022', 'SQL_Latin1_General_CP1_CI_AS', 70, 10),
-(2, 'NDS', 'Normalized data store', 'SQL Server 2022', 'SQL_Latin1_General_CP1_CI_AS', 225, 25),
-(3, 'DDS', 'Dimensional data store', 'SQL Server 2022', 'SQL_Latin1_General_CP1_CI_AS', 350, 25),
-(4, 'Meta', 'Metadata database', 'SQL Server 2022', 'SQL_Latin1_General_CP1_CI_AS', 10, 5),
+(1, 'Stage', ' Staging area', 'SQL Server 2022'),
+(2, 'NDS', 'Normalized data store', 'SQL Server 2022'),
+(3, 'DDS', 'Dimensional data store', 'SQL Server 2022'),
+(4, 'Meta', 'Metadata database', 'SQL Server 2022')
 GO
 
 INSERT INTO ds_table_type (tb_type_key, table_type, description) 
@@ -15,7 +15,7 @@ VALUES
 (1, 'Dimension', 'Bảng chiều'),
 (2, 'Fact', 'Bảng Fact: lưu trữ dữ liệu định lượng hoặc số liệu được sử dụng để phân tích AQI'),
 (3, 'Stage', 'Bảng Stage: đóng vai trò là vùng lưu trữ tạm thời cho dữ liệu đang được xử lý trong ETL.'),
-(4, 'Source reference', 'Bảng nguồn: lưu trữ dữ liệu tham chiếu tĩnh hoặc hiếm khi thay đổi từ các hệ thống nguồn'),
+(4, 'Source reference', 'Bảng nguồn: lưu trữ dữ liệu tham chiếu tĩnh hoặc hiếm khi thay đổi từ các hệ thống nguồn')
 GO
 
 INSERT INTO ds_table (tb_key, tb_name, entity_type, data_store, description) 
@@ -25,13 +25,13 @@ VALUES
 (3, 'NDSDB.dbo.State', NULL, 2, 'NDS State: lưu trữ thông tin bang ở NDS'),
 (4, 'NDSDB.dbo.County', NULL, 2, ' NDS County: Lưu trữ thông tin hạt ở NDS'),
 (5, 'NDSDB.dbo.Category', NULL, 2, 'NDS Category: Lưu trữ thông tin loại AQI ở NDS'),
-(6, 'NDSDB.dbo.AQI_Measurement', NULL, 2, 'NDS AQI: Lưu trữ thôngt tin đo lường AQI ở NDS');
+(6, 'NDSDB.dbo.AQI_Measurement', NULL, 2, 'NDS AQI: Lưu trữ thôngt tin đo lường AQI ở NDS'),
 (7, 'Dim_State', 1, 3, 'DDS State: Lưu trữ thông tin bang ở DDS'),
 (8, 'Dim_County', 1, 3, 'DDS County: Lưu trữ thông tin hạt ở DDS'),
 (9, 'Dim_Date', 1, 3, 'DDS Date: Lưu trữ thông tin ngày tháng ở DDS'),
 (10, 'Dim_Category', 1, 3, 'DDS Category: Lưu trữ thông tin loại AQI ở DDS'),
 (11, 'Dim_DefiningParameter', 1, 3, 'DDS DefingParameter: Lưu trữ thông tin thông số ở DDS'),
-(12, 'AQI_Fact', 2, 3, 'DDS Fact_AQI: lưu trữ thông tin về các đo lường AQI ở DDS');
+(12, 'AQI_Fact', 2, 3, 'DDS Fact_AQI: lưu trữ thông tin về các đo lường AQI ở DDS')
 GO
 
 INSERT INTO ds_column_type (column_type_key, column_type_name, location, description) 
@@ -49,11 +49,11 @@ VALUES
 (2, 1, 'county', 'VARCHAR(50)', 'NO', 'NO', 'YES', 'NO'),
 (3, 1, 'county_asii', 'VARCHAR(5)', 'NO', 'NO', 'YES', 'NO'),
 (4, 1, 'county_full', 'VARCHAR(100)', 'NO', 'NO', 'YES', 'NO'),
-(5, 1, 'state_id', 'VARCHAR(5)', 'NO', 'NO', 'YES', 'NO');
+(5, 1, 'state_id', 'VARCHAR(5)', 'NO', 'NO', 'YES', 'NO'),
 (6, 1, 'state_name', 'VARCHAR(50)', 'NO', 'NO', 'YES', 'NO'),
 (7, 1, 'lat', 'FLOAT', 'NO', 'NO', 'YES', 'NO'),
 (8, 1, 'lng', 'FLOAT', 'NO', 'NO', 'YES', 'NO'),
-(9, 1, 'populations', 'NO', 'NO', 'YES', 'NO'),
+(9, 1, 'populations', 'INT', 'NO', 'NO', 'YES', 'NO'),
 (10, 2, 'state_name', 'VARCHAR(50)', 'NO', 'NO', 'YES', 'NO'),
 (11, 2, 'county_name', 'VARCHAR(50)', 'NO', 'NO', 'YES', 'NO'),
 (12, 2, 'state_code', 'VARCHAR(50)', 'YES', 'NO', 'YES', 'NO'),
@@ -76,10 +76,10 @@ VALUES
 (29, 4, 'county_ascii', 'VARCHAR(255)', 'NO', 'NO', 'NO', 'NO'),
 (30, 4, 'county_full', 'VARCHAR(255)', 'NO', 'NO', 'NO', 'NO'),
 (31, 4, 'county_code', 'VARCHAR(3)', 'NO', 'NO', 'NO', 'NO'),
-(32, 4, 'lat', 'INT', 'DECIMAL(9, 6)', 'NO', 'NO', 'NO', 'NO'),
-(33, 4, 'lng', 'INT', 'DECIMAL(9, 6)', 'NO', 'NO', 'NO', 'NO'),
+(32, 4, 'lat', 'DECIMAL(9, 6)', 'NO', 'NO', 'NO', 'NO'),
+(33, 4, 'lng', 'DECIMAL(9, 6)', 'NO', 'NO', 'NO', 'NO'),
 (34, 4, 'population', 'INT', 'NO', 'NO', 'NO', 'NO'),
-(35, 4, 'state_code', 'VARCHAR(2)', 'NO', 'YES', 'NO', 'NO');
+(35, 4, 'state_code', 'VARCHAR(2)', 'NO', 'YES', 'NO', 'NO'),
 (36, 4, 'created_date', 'DATETIME DEFAULT GETDATE()', 'NO', 'NO', 'NO', 'NO'),
 (37, 4, 'updated_date', 'DATETIME DEFAULT GETDATE()', 'NO', 'NO', 'NO', 'NO'),
 (38, 5, 'measurement_id', 'VARCHAR(3)', 'YES', 'NO', 'NO', 'NO'),
@@ -152,6 +152,7 @@ VALUES
     (1, 'Stage ETL'),
     (2, 'NDS ETL'),
     (3, 'DDS ETL');
+GO
 
 --event type
 INSERT INTO event_type (id, event_type)
@@ -167,6 +168,7 @@ VALUES
 	(9, 'Load DDS State'),
     (10, 'Load DDS County'),
     (11, 'Load DDS Category'),
-    (12, 'Load DDS AQI_Measurements');
+    (12, 'Load DDS AQI_Measurements'),
 	(13, 'Load DDS Date'),
     (14, 'Load DDS DefiningParameter');
+GO
