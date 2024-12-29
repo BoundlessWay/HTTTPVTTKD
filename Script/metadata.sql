@@ -62,13 +62,13 @@ CREATE TABLE ds_column (
 )
 
 
-go
 CREATE TABLE status (
     status_id INT PRIMARY KEY,
     status VARCHAR(50)
 );
 
-go
+GO
+
 CREATE TABLE data_flow (
     flow_id INT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(50),
